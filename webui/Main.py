@@ -149,11 +149,8 @@ VIDEO_SOURCE_GROUPS = {
 # 也方便用户从 WebUI 直接完成首次配置和后续账号维护。
 UPLOAD_POST_API_KEYS_URL = "https://app.upload-post.com/api-keys"
 UPLOAD_POST_MANAGE_USERS_URL = "https://app.upload-post.com/manage-users"
-# 素材设置与视频来源说明共用推广入口，避免两个位置的链接参数不一致。
-OFOX_REFERRAL_URL = (
-    "https://ofox.ai/?utm_source=github"
-    "&utm_medium=sponsorship&utm_content=moneyprinterturbo"
-)
+# OFox 官方主页
+OFOX_REFERRAL_URL = "https://ofox.ai"
 # “默认”是 WebUI 专用哨兵，不会写入 config.toml，也不会传给 FFmpeg。
 # 后端在 video_codec 未配置时继续采用稳定的 libx264；单独保留该哨兵可以区分
 # “跟随项目默认策略”和“用户明确固定 libx264”，便于未来安全调整默认策略。

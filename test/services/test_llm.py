@@ -711,7 +711,7 @@ class TestLiteLLMProvider(unittest.TestCase):
         shengsuanyun = get_llm_provider("shengsuanyun")
         self.assertEqual(
             shengsuanyun.api_key_url,
-            "https://www.shengsuanyun.com/?from=CH_XUQ4OTSK",
+            "https://www.shengsuanyun.com",
         )
         self.assertEqual(
             shengsuanyun.default_model,
@@ -720,7 +720,7 @@ class TestLiteLLMProvider(unittest.TestCase):
         apimart = get_llm_provider("apimart")
         self.assertEqual(
             apimart.api_key_url,
-            "https://go.apimart.ai/gh-moneyprinterturbo",
+            "https://apimart.ai",
         )
         self.assertEqual(apimart.default_model, "gpt-5.6-terra")
         self.assertEqual(apimart.default_base_url, "https://api.apimart.ai/v1")
@@ -848,11 +848,12 @@ class TestLiteLLMProvider(unittest.TestCase):
         ]["llm_provider_tips.moonshot"]
         self.assertIn("推荐理由：", zh_kimi_tips)
         self.assertIn("视频创作链路匹配", zh_kimi_tips)
-        self.assertIn("活动截至 2026 年 12 月 31 日", zh_kimi_tips)
+        self.assertIn("长上下文能力强", zh_kimi_tips)
         en_kimi_tips = json.loads((i18n_dir / "en.json").read_text(encoding="utf-8"))[
             "Translation"
         ]["llm_provider_tips.moonshot"]
-        self.assertIn("offer ends December 31, 2026", en_kimi_tips)
+        self.assertIn("Why recommended:", en_kimi_tips)
+        self.assertIn("Fits the video creation workflow", en_kimi_tips)
 
     def test_required_api_key_providers_have_clickable_entry_points(self):
         """需要密钥的 Provider 必须提供统一申请入口，避免 WebUI 只给出文字。"""

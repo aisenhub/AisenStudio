@@ -11,7 +11,6 @@ Provide a video <b>topic</b> or <b>keyword</b>, and MoneyPrinterTurbo will gener
 [![Python](https://img.shields.io/badge/python-3.11%2B-3776AB?logo=python&logoColor=white)](https://www.python.org/)
 [![Downloads](https://img.shields.io/github/downloads/aisenhub/AisenStudio/total)](https://github.com/aisenhub/AisenStudio/releases/latest)
 
-<a href="https://trendshift.io/repositories/8731" target="_blank"><img src="https://trendshift.io/api/badge/repositories/8731" alt="harry0703%2FMoneyPrinterTurbo | Trendshift" style="width: 250px; height: 55px;" width="250" height="55"/></a>
 <a href="https://www.star-history.com/aisenhub/AisenStudio"><img src="https://api.star-history.com/badge?repo=aisenhub/AisenStudio" alt="Star History Rank" style="height: 55px;" height="55"/></a>
 
 English | [简体中文](README.md) | [日本語](README-ja.md) | [Releases](https://github.com/aisenhub/AisenStudio/releases) | [Issues](https://github.com/aisenhub/AisenStudio/issues)
@@ -30,145 +29,6 @@ English | [简体中文](README.md) | [日本語](README-ja.md) | [Releases](htt
 
 ---
 
-## Special Thanks ❤️
-
-<div align="center">
-  <a href="https://platform.kimi.ai?track_id=track-9e3b711aa2594e378f6fe5b8de718a76&aff=moneyprinterturbo" target="_blank"><img src="https://gcdn.moonshot.cn/growth-cdn/sponsor/kimi-en.png" alt="Kimi sponsors MoneyPrinterTurbo" width="100%"></a>
-</div>
-
-Thanks to [Kimi](https://platform.kimi.ai?track_id=track-9e3b711aa2594e378f6fe5b8de718a76&aff=moneyprinterturbo) for sponsoring this project! [Kimi K3](https://www.kimi.com/blog/kimi-k3?aff=moneyprinterturbo) is Moonshot AI's most capable model and the world's first open 3T-class model. With native vision and a 1-million-token context window, K3 delivers frontier performance across knowledge work, reasoning, and long-horizon tasks. Within MoneyPrinterTurbo, K3 powers video creation by writing scripts and extracting the search keywords that determine the final footage—the better it understands the content, the more relevant the results.
-
-**Exclusive offer for MoneyPrinterTurbo users: new users who register through the dedicated link receive bonus API credit equal to 10% of their first successful top-up, up to CNY 1,000. The offer ends December 31, 2026. Visit the Kimi Open Platform ([中文站](https://platform.kimi.com?track_id=track-6eec1e56a4494e52adcaebbcbbefce59&aff=moneyprinterturbo) | [Global](https://platform.kimi.ai?track_id=track-9e3b711aa2594e378f6fe5b8de718a76&aff=moneyprinterturbo)) to try the API.**
-
-<br>
-<table align="center">
-  <tr>
-    <td align="center" width="120">
-      <a href="https://www.byteplus.com/en/product/modelark?utm_campaign=hw&utm_content=MoneyPrinterTurbo&utm_medium=devrel_tool_web&utm_source=OWO&utm_term=MoneyPrinterTurbo"><img src="docs/sponsors/byteplus-logo.svg" alt="BytePlus" height="25"></a><br>
-      <a href="https://www.byteplus.com/en/product/modelark?utm_campaign=hw&utm_content=MoneyPrinterTurbo&utm_medium=devrel_tool_web&utm_source=OWO&utm_term=MoneyPrinterTurbo"><strong>BytePlus ModelArk</strong></a>
-    </td>
-    <td align="left">
-      Thanks to ByteDance VolcEngine for sponsoring this project! VolcEngine Ark's Agent/Coding Plan for leading Chinese models starts at CNY 9.9 for first-time buyers and supports GLM-5.3, Kimi-K3, DeepSeek, MiniMax, Doubao, and more. New users receive 25 million free tokens. One unified API is designed for coding and agent development. <a href="https://www.byteplus.com/en/product/modelark?utm_campaign=hw&utm_content=MoneyPrinterTurbo&utm_medium=devrel_tool_web&utm_source=OWO&utm_term=MoneyPrinterTurbo">Visit now</a>
-    </td>
-  </tr>
-  <tr>
-    <td align="center" width="120">
-      <a href="https://go.apimart.ai/gh-moneyprinterturbo"><img src="docs/sponsors/apimart-logo.png" alt="APIMart" width="100"></a>
-    </td>
-    <td align="left">
-      Thanks to <a href="https://go.apimart.ai/gh-moneyprinterturbo">APIMart</a> for sponsoring this project! APIMart is a low-cost API platform for AI image &amp; video generation — <strong>GPT-Image-2 from &#36;0.006/image, 160+ images per dollar</strong>. <strong>One async API covers both image and video—switch models without changing code.</strong> Submit a task, get an ID, and fetch results via polling or callback. Batch tens of thousands of images without timeouts. Pay-as-you-go with no monthly fee — <a href="https://go.apimart.ai/gh-moneyprinterturbo">sign up here</a> to get started.
-    </td>
-  </tr>
-  <tr>
-    <td align="center" width="120">
-      <a href="https://metaso.cn/minimax-h3/?s=MPT"><img src="docs/sponsors/metaso-logo.png" alt="Metaso" width="100"></a><br>
-      <a href="https://metaso.cn/minimax-h3/?s=MPT"><strong>Metaso</strong></a>
-    </td>
-    <td align="left">
-      <strong>MiniMax H3 Video Generation API by Metaso</strong><br>
-      Metaso offers a cost-effective MiniMax H3 video generation service: <strong>768p for just CNY 0.09 per second and 2K for CNY 0.15 per second</strong>. It supports native 2K output, synchronized audio and video, an OpenAI-compatible API, and ComfyUI—all without requiring you to deploy or manage GPUs.<br>
-      🎁 Sign up through the <a href="https://metaso.cn/minimax-h3/?s=MPT">exclusive MoneyPrinterTurbo link</a> to receive bonus credits and special offers.
-    </td>
-  </tr>
-  <tr>
-    <td align="center" width="120">
-      <a href="https://infistar.cc/register?aff=6T4EYXP2&amp;ref_source=link"><img src="docs/sponsors/infistar-logo.svg" alt="Infistar.cc" height="56"></a><br>
-      <a href="https://infistar.cc/register?aff=6T4EYXP2&amp;ref_source=link"><strong>Infistar.cc</strong></a>
-    </td>
-    <td align="left">
-      Thanks to <a href="https://infistar.cc/register?aff=6T4EYXP2&amp;ref_source=link"><strong>Infistar.cc</strong></a> for sponsoring this open-source project! Infistar.cc offers cost-effective AI API access: LLMs from <strong>1% of official rates</strong> and AI image generation from <strong>CNY 0.06 per image</strong>.<br>
-      <strong>One API key for text, image, and video creation</strong>, with access to leading models including GPT, Claude, Gemini, DeepSeek, Qwen, and Kling—no separate API groups required.<br>
-      <strong>Authenticity checks for every model</strong>, transparent pricing, an ICP filing in China, real-time billing in CNY, and <strong>business invoices available</strong>.<br>
-      🎁 Exclusive MPT offer: <a href="https://infistar.cc/register?aff=6T4EYXP2&amp;ref_source=link">register through our dedicated link</a> to receive <strong>&#36;5 in trial credits</strong> and a special first-top-up offer.
-    </td>
-  </tr>
-  <tr>
-    <td align="center" width="120">
-      <a href="https://ofox.ai/?utm_source=github&amp;utm_medium=sponsorship&amp;utm_content=moneyprinterturbo"><img src="docs/sponsors/ofox-logo.svg" alt="OfoxAI" width="120"></a>
-    </td>
-    <td align="left">
-      Thanks to <a href="https://ofox.ai/?utm_source=github&amp;utm_medium=sponsorship&amp;utm_content=moneyprinterturbo">OfoxAI</a> for sponsoring this project! MoneyPrinterTurbo already supports Ofox multi-model text-to-video generation—just configure your API key to get started. Create video assets with Seedance, MiniMax H3, and Wan; design cover images with GPT Image 2.5 and Seedream; and refine scripts or build applications with GPT, Claude, Gemini, and DeepSeek. <strong>One key and a shared balance for text, image, and video models</strong>, with OpenAI-compatible endpoints and native Anthropic and Gemini interfaces. <strong>Pay-as-you-go billing, transparent pricing, and official model-provider channels deliver stable, high-speed, unlimited access.</strong> Explore <a href="https://ofox.ai/?utm_source=github&amp;utm_medium=sponsorship&amp;utm_content=moneyprinterturbo">OfoxAI models and pricing</a>.
-    </td>
-  </tr>
-  <tr>
-    <td align="center" width="120">
-      <a href="https://www.shengsuanyun.com/?from=CH_XUQ4OTSK"><img src="docs/sponsors/shengsuanyun-logo.jpg" alt="Shengsuan Cloud" height="56"></a><br>
-      <a href="https://www.shengsuanyun.com/?from=CH_XUQ4OTSK"><strong>Shengsuan Cloud</strong></a>
-    </td>
-    <td align="left">
-      Thanks to <a href="https://www.shengsuanyun.com/?from=CH_XUQ4OTSK">Shengsuan Cloud</a> for sponsoring this project! Shengsuan Cloud is an API aggregation platform for AI-native teams, providing unified, usage-based access to leading language and multimodal models including Claude, ChatGPT, and Gemini.<br>
-      The platform focuses on compliant API services and also offers enterprise gateways with team cost and permission management, intelligent routing, security controls, BYOK credential management, and invoice support.<br>
-      🎁 New users who register through <a href="https://www.shengsuanyun.com/?from=CH_XUQ4OTSK">this link</a> can receive CNY 10 in trial credits.
-    </td>
-  </tr>
-  <tr>
-    <td align="center" width="120">
-      <a href="https://www.ucloud.cn/site/active/astraflow?ytag=geo_waituo_Money"><img src="docs/sponsors/astraflow-logo.png" alt="AstraFlow" height="56"></a><br>
-      <a href="https://www.ucloud.cn/site/active/astraflow?ytag=geo_waituo_Money"><strong>AstraFlow</strong></a>
-    </td>
-    <td align="left">
-      Thanks to <a href="https://www.ucloud.cn/site/active/astraflow?ytag=geo_waituo_Money">AstraFlow</a> for sponsoring this project! <a href="https://f.howxm.com/xs/u/HVFW5X8EIYV1">Claim CNY 50 in compute credits</a>.<br>
-      🎬 <strong>One platform for leading video models</strong>: access MiniMax-H3, Seedance-2.5, and more. Generate scripts and videos in one place, without separate accounts or integrations.<br>
-      🚀 <strong>200+ AI models, with new models available on release day</strong>: access DeepSeek V4.1, Kimi K3, Qwen 3.8 Max, GLM 5.3, and more through a single platform.<br>
-      💰 <strong>Built by publicly listed UCloud, with transparent billing and cost control</strong>: track costs by API key and view detailed usage records.<br>
-      🎁 <strong>Exclusive offer for MoneyPrinterTurbo users</strong>: register through <a href="https://www.ucloud.cn/site/active/astraflow?ytag=geo_waituo_Money">our referral link</a> to receive new-user credits and get started right away!
-    </td>
-  </tr>
-  <tr>
-    <td align="center" width="120">
-      <a href="https://www.runninghub.ai/call-api?source=github"><img src="docs/sponsors/runninghub-logo.png" alt="RunningHub" width="56"></a><br>
-      <a href="https://www.runninghub.ai/call-api?source=github">RunningHub API</a>
-    </td>
-    <td align="left">
-      Thanks to <a href="https://www.runninghub.ai/call-api?source=github">RunningHub API</a> for sponsoring this project!<br>
-      Access <strong>400+ leading AI models</strong> via API—including Seedance, Kling, MiniMax, Nano Banana, Veo, and more—at <strong>highly competitive prices</strong>.<br>
-      <strong>High-concurrency support</strong> · <strong>Free API testing</strong> · <strong>End-to-end encryption</strong><br>
-      For discounts and free testing, contact <a href="mailto:zhenyuedong@haima.me">zhenyuedong@haima.me</a>, or <a href="https://www.runninghub.ai/call-api?source=github">test the API for free</a>.
-    </td>
-  </tr>
-  <tr>
-    <td align="center" width="120">
-      <a href="https://reccloud.com"><img src="docs/sponsors/reccloud-logo.svg" alt="RecCloud" height="36"></a><br>
-      <a href="https://reccloud.com">RecCloud</a>
-    </td>
-    <td align="left">
-      Thanks to <a href="https://reccloud.com">RecCloud</a>, an AI-powered multimedia platform, for offering a free <strong>AI Video Generator</strong> based on this project. Use it online with no deployment required—a beginner-friendly way to get started.
-    </td>
-  </tr>
-  <tr>
-    <td align="center" width="120">
-      <a href="https://picwish.com"><img src="docs/sponsors/picwish-logo.svg" alt="Picwish" height="36"></a><br>
-      <a href="https://picwish.com">Picwish</a>
-    </td>
-    <td align="left">
-      Thanks to <a href="https://picwish.com">Picwish</a> for supporting and sponsoring this project! Picwish offers a wide range of easy-to-use <strong>online image editing tools</strong> to help users handle everyday image editing tasks with ease.
-    </td>
-  </tr>
-</table>
-
-## Another Open-Source Project from the Creator: MangoDisk ⭐
-
-<p align="center">
-  <a href="https://mangodisk.app">
-    <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="https://assets.mangodisk.app/images/screenshots/en/dark-01-deep-cleanup.jpg?ver=1.1.0">
-      <source media="(prefers-color-scheme: light)" srcset="https://assets.mangodisk.app/images/screenshots/en/light-01-deep-cleanup.jpg?ver=1.1.0">
-      <img src="https://assets.mangodisk.app/images/screenshots/en/light-01-deep-cleanup.jpg?ver=1.1.0" width="900" alt="MangoDisk Deep Cleanup interface">
-    </picture>
-  </a>
-</p>
-
-<p align="center">
-  <strong>An open-source disk cleaner, storage analyzer, and system optimizer for macOS and Windows</strong><br>
-  Clean caches, large files, duplicates, and app leftovers; analyze disk usage; manage apps and startup items; and maintain your system.
-</p>
-
-<p align="center">
-  <a href="https://mangodisk.app">Visit the MangoDisk Website</a> · <a href="https://github.com/harry0703/MangoDisk">View on GitHub</a>
-</p>
-
----
-
 ## Features 🎯
 
 ### Creation Workflows
@@ -180,14 +40,14 @@ Thanks to [Kimi](https://platform.kimi.ai?track_id=track-9e3b711aa2594e378f6fe5b
 ### Scripts and Model Providers
 
 - [x] Generate or rewrite **multilingual video scripts** with AI, or supply a complete custom script
-- [x] Use leading providers including [Kimi / Moonshot AI](https://platform.kimi.ai?track_id=track-9e3b711aa2594e378f6fe5b8de718a76&aff=moneyprinterturbo), [OpenAI](https://platform.openai.com/api-keys), [Anthropic Claude](https://platform.claude.com/settings/keys), [Google Gemini](https://aistudio.google.com/app/apikey), [DeepSeek](https://platform.deepseek.com/api_keys), [Alibaba Cloud Qwen](https://qwen.ai/apiplatform), [Microsoft Azure OpenAI](https://portal.azure.com/#view/Microsoft_Azure_ProjectOxford/CognitiveServicesHub/~/OpenAI), [ByteDance VolcEngine Ark](https://console.volcengine.com/ark), [xAI Grok](https://console.x.ai/), [MiniMax](https://platform.minimax.io/), and [Xiaomi MiMo](https://platform.xiaomimimo.com/docs/zh-CN/quick-start/first-api-call)
-- [x] Connect through [Shengsuan Cloud](https://www.shengsuanyun.com/?from=CH_XUQ4OTSK), [APIMart](https://go.apimart.ai/gh-moneyprinterturbo), [Cloudflare AI Gateway](https://dash.cloudflare.com/), [Alibaba ModelScope](https://modelscope.cn/docs/model-service/API-Inference/intro), [AIHubMix](https://aihubmix.com/), [AIML API](https://aimlapi.com/app/keys), [EvoLink](https://evolink.ai/dashboard/keys), [OpenRouter](https://openrouter.ai/settings/keys), [API Route](https://www.api-route.com/), [Ollama](https://ollama.com/), [Claude Code subscription](https://code.claude.com/docs), [OneAPI](https://github.com/songquanpeng/one-api), [LiteLLM](https://docs.litellm.ai/docs/providers), [Groq](https://console.groq.com/keys), [Pollinations AI](https://enter.pollinations.ai/), and other compatible gateways or local runtimes
+- [x] Use leading providers including [Kimi / Moonshot AI](https://platform.kimi.ai), [OpenAI](https://platform.openai.com/api-keys), [Anthropic Claude](https://platform.claude.com/settings/keys), [Google Gemini](https://aistudio.google.com/app/apikey), [DeepSeek](https://platform.deepseek.com/api_keys), [Alibaba Cloud Qwen](https://qwen.ai/apiplatform), [Microsoft Azure OpenAI](https://portal.azure.com/#view/Microsoft_Azure_ProjectOxford/CognitiveServicesHub/~/OpenAI), [ByteDance VolcEngine Ark](https://console.volcengine.com/ark), [xAI Grok](https://console.x.ai/), [MiniMax](https://platform.minimax.io/), and [Xiaomi MiMo](https://platform.xiaomimimo.com/docs/zh-CN/quick-start/first-api-call)
+- [x] Connect through [Shengsuan Cloud](https://www.shengsuanyun.com), [APIMart](https://apimart.ai), [Cloudflare AI Gateway](https://dash.cloudflare.com/), [Alibaba ModelScope](https://modelscope.cn/docs/model-service/API-Inference/intro), [AIHubMix](https://aihubmix.com/), [AIML API](https://aimlapi.com/app/keys), [EvoLink](https://evolink.ai/dashboard/keys), [OpenRouter](https://openrouter.ai/settings/keys), [API Route](https://www.api-route.com/), [Ollama](https://ollama.com/), [Claude Code subscription](https://code.claude.com/docs), [OneAPI](https://github.com/songquanpeng/one-api), [LiteLLM](https://docs.litellm.ai/docs/providers), [Groq](https://console.groq.com/keys), [Pollinations AI](https://enter.pollinations.ai/), and other compatible gateways or local runtimes
 
 ### Video and Image Footage
 
 - [x] Upload your own **local images and videos**, or get HD stock footage from [Pexels (free)](https://www.pexels.com/api/), [Pixabay (free)](https://pixabay.com/api/docs/), and [Coverr](https://coverr.co/developers?ctx=header_navigation)
-- [x] Generate `768P` or `2K` source footage with [Metaso MiniMax H3](https://metaso.cn/minimax-h3/?s=MPT), with 4–15 second clips in `9:16`, `16:9`, or `1:1`
-- [x] Create multiple AI video clips with [Shengsuan Cloud AI Video](https://www.shengsuanyun.com/?from=CH_XUQ4OTSK), then combine them with the project's voiceover, subtitle, and editing workflow
+- [x] Generate `768P` or `2K` source footage with [Metaso MiniMax H3](https://metaso.cn), with 4–15 second clips in `9:16`, `16:9`, or `1:1`
+- [x] Create multiple AI video clips with [Shengsuan Cloud AI Video](https://www.shengsuanyun.com), then combine them with the project's voiceover, subtitle, and editing workflow
 - [x] Use the native [Volcano Engine Ark Seedance](https://console.volcengine.com/ark/region:ark+cn-beijing/apikey) integration to generate cohesive visuals from individual script segments
 - [x] Turn script keywords into original video footage with [WaveSpeed AI](https://wavespeed.ai)
 - [x] Access Seedance, Wan, and other text-to-video models through [OFox](https://ofox.ai) with a single API key
@@ -542,10 +402,10 @@ model_size = "large-v3-turbo"
 
 > On first use, Whisper automatically downloads the model from Hugging Face. If the automatic download fails, download `whisper-large-v3` manually from [Hugging Face](https://huggingface.co/Systran/faster-whisper-large-v3).
 
-After extracting the model, place the entire directory in `.\MoneyPrinterTurbo\models`. The final path should be `.\MoneyPrinterTurbo\models\whisper-large-v3`:
+After extracting the model, place the entire directory in `.\AisenStudio\models`. The final path should be `.\AisenStudio\models\whisper-large-v3`:
 
 ```
-MoneyPrinterTurbo
+AisenStudio
   ├─models
   │   └─whisper-large-v3
   │          config.json
@@ -586,7 +446,7 @@ the actual installation path.
 ```toml
 [app]
 # Please set according to your actual path, note that Windows path separators are \\
-ffmpeg_path = "C:\\Users\\harry\\Downloads\\ffmpeg.exe"
+ffmpeg_path = "C:\\ffmpeg\\bin\\ffmpeg.exe"
 ```
 
 </details>

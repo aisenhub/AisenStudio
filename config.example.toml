@@ -185,7 +185,7 @@ muapi_poll_interval = 5
 muapi_run_timeout = 1800
 
 # Metaso proxies the MiniMax H3 V2 asynchronous video API. Register and obtain
-# an independent API key through https://metaso.cn/minimax-h3/?s=MPT. Its mk-*
+# an independent API key through https://metaso.cn/minimax-h3. Its mk-*
 # key belongs to a separate credential system and must not reuse the MiniMax LLM key.
 # When this value is empty, METASO_MINIMAX_API_KEY is used. Generation is billed
 # per submitted clip; the WebUI and CLI require explicit charge confirmation.
@@ -253,7 +253,7 @@ sonilo_timeout = 600
 llm_provider = "moonshot"
 
 # Kimi / Moonshot AI
-# API key: https://platform.kimi.com?track_id=track-6eec1e56a4494e52adcaebbcbbefce59&aff=moneyprinterturbo
+# API key: https://platform.kimi.com
 moonshot_api_key = ""
 moonshot_base_url = ""
 moonshot_model_name = ""
@@ -265,7 +265,7 @@ shengsuanyun_base_url = ""
 shengsuanyun_model_name = ""
 
 # APIMart, OpenAI-compatible multi-model API.
-# Sign up: https://go.apimart.ai/gh-moneyprinterturbo
+# Sign up: https://apimart.ai
 # API docs: https://docs.apimart.ai/cn
 apimart_api_key = ""
 apimart_base_url = ""

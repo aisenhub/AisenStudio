@@ -11,7 +11,6 @@
 [![Python](https://img.shields.io/badge/python-3.11%2B-3776AB?logo=python&logoColor=white)](https://www.python.org/)
 [![Downloads](https://img.shields.io/github/downloads/aisenhub/AisenStudio/total)](https://github.com/aisenhub/AisenStudio/releases/latest)
 
-<a href="https://trendshift.io/repositories/8731" target="_blank"><img src="https://trendshift.io/api/badge/repositories/8731" alt="harry0703%2FMoneyPrinterTurbo | Trendshift" style="width: 250px; height: 55px;" width="250" height="55"/></a>
 <a href="https://www.star-history.com/aisenhub/AisenStudio"><img src="https://api.star-history.com/badge?repo=aisenhub/AisenStudio" alt="Star History Rank" style="height: 55px;" height="55"/></a>
 
 日本語 | [English](README-en.md) | [简体中文](README.md) | [リリース](https://github.com/aisenhub/AisenStudio/releases) | [Issues](https://github.com/aisenhub/AisenStudio/issues)
@@ -30,112 +29,6 @@
 
 ---
 
-## スペシャルサンクス ❤️
-
-<div align="center">
-  <a href="https://platform.kimi.ai?track_id=track-9e3b711aa2594e378f6fe5b8de718a76&aff=moneyprinterturbo" target="_blank"><img src="https://gcdn.moonshot.cn/growth-cdn/sponsor/kimi-en.png" alt="Kimi sponsors MoneyPrinterTurbo" width="100%"></a>
-</div>
-
-本プロジェクトをスポンサードしてくださっている [Kimi](https://platform.kimi.ai?track_id=track-9e3b711aa2594e378f6fe5b8de718a76&aff=moneyprinterturbo) に感謝します！ [Kimi K3](https://www.kimi.com/blog/kimi-k3?aff=moneyprinterturbo) は Moonshot AI の最も高性能なモデルであり、世界初の 3T クラスのオープンモデルです。ネイティブの視覚能力と 100 万トークンのコンテキストウィンドウを備えた K3 は、ナレッジワーク、推論、長期にわたるタスクにおいて最先端の性能を発揮します。MoneyPrinterTurbo では、K3 が台本の作成と、最終的な映像素材を左右する検索キーワードの抽出を担い、動画制作を支えています。内容をより深く理解するほど、より適切な素材が得られます。
-
-**MoneyPrinterTurbo ユーザー限定特典: 専用リンクから新規登録すると、初回のチャージ成功額の 10% 相当（上限 1,000 元）の API クレジットがボーナスとして付与されます。特典の終了は 2026 年 12 月 31 日です。Kimi オープンプラットフォーム（[中国語サイト](https://platform.kimi.com?track_id=track-6eec1e56a4494e52adcaebbcbbefce59&aff=moneyprinterturbo) | [グローバル](https://platform.kimi.ai?track_id=track-9e3b711aa2594e378f6fe5b8de718a76&aff=moneyprinterturbo)）から API をお試しください。**
-
-<br>
-<table align="center">
-  <tr>
-    <td align="center" width="120">
-      <a href="https://www.byteplus.com/en/product/modelark?utm_campaign=hw&utm_content=MoneyPrinterTurbo&utm_medium=devrel_tool_web&utm_source=OWO&utm_term=MoneyPrinterTurbo"><img src="docs/sponsors/byteplus-logo.svg" alt="BytePlus" height="25"></a><br>
-      <a href="https://www.byteplus.com/en/product/modelark?utm_campaign=hw&utm_content=MoneyPrinterTurbo&utm_medium=devrel_tool_web&utm_source=OWO&utm_term=MoneyPrinterTurbo"><strong>BytePlus ModelArk</strong></a>
-    </td>
-    <td align="left">
-      本プロジェクトをスポンサードしてくださっている Dola Seed に感謝します！ <a href="https://www.byteplus.com/en/product/modelark?utm_campaign=hw&utm_content=MoneyPrinterTurbo&utm_medium=devrel_tool_web&utm_source=OWO&utm_term=MoneyPrinterTurbo">Dola Seed 2.0</a> は、ByteDance がグローバル市場向けに独自開発した全モーダル対応の汎用大規模モデルです。統合マルチモーダルアーキテクチャを基盤とし、テキスト・画像・音声・動画の統合的な理解と生成をサポートします。エージェント連携をネイティブに実現し、推論、長時間タスクの遂行、ツール連携、コーディングにおいて優れた能力を発揮します。こちらのリンクから登録すると、モデルごとに 50 万トークンの無料推論枠が付与されます。
-    </td>
-  </tr>
-  <tr>
-    <td align="center" width="120">
-      <a href="https://go.apimart.ai/gh-moneyprinterturbo"><img src="docs/sponsors/apimart-logo.png" alt="APIMart" width="100"></a>
-    </td>
-    <td align="left">
-      本プロジェクトをスポンサードしてくださっている <a href="https://go.apimart.ai/gh-moneyprinterturbo">APIMart</a> に感謝します！ APIMart は、AI 画像・動画生成に特化した低価格 API プラットフォームです。<strong>GPT-Image-2 は 1 枚あたり 0.006 米ドルから利用でき、1 米ドルで 160 枚以上の画像を生成できます</strong>。<strong>画像と動画を 1 つの非同期 API で扱い、コードを変更せずにモデルを切り替えられます</strong>。タスクを送信して ID を受け取った後、ポーリングまたはコールバックで結果を取得でき、数万枚規模のバッチ処理にも対応します。月額料金のない従量課金制で、<a href="https://go.apimart.ai/gh-moneyprinterturbo">こちらの登録リンク</a>からすぐに利用を開始できます。
-    </td>
-  </tr>
-  <tr>
-    <td align="center" width="120">
-      <a href="https://metaso.cn/minimax-h3/?s=MPT"><img src="docs/sponsors/metaso-logo.png" alt="Metaso" width="100"></a><br>
-      <a href="https://metaso.cn/minimax-h3/?s=MPT"><strong>Metaso</strong></a>
-    </td>
-    <td align="left">
-      <strong>Metaso の MiniMax H3 動画生成 API</strong><br>
-      Metaso は、コストパフォーマンスに優れた MiniMax H3 動画生成サービスを提供しています。料金は <strong>768P が 1 秒あたり 0.09 元、2K が 1 秒あたり 0.15 元</strong>です。ネイティブ 2K、映像と音声の同期、OpenAI 互換 API、ComfyUI に対応しており、GPU を自分で用意・運用する必要はありません。<br>
-      🎁 <a href="https://metaso.cn/minimax-h3/?s=MPT">MoneyPrinterTurbo 専用リンク</a>から登録すると、ボーナスクレジットや限定特典を受け取れます。
-    </td>
-  </tr>
-  <tr>
-    <td align="center" width="120">
-      <a href="https://infistar.cc/register?aff=6T4EYXP2&amp;ref_source=link"><img src="docs/sponsors/infistar-logo.svg" alt="Infistar.cc" height="56"></a><br>
-      <a href="https://infistar.cc/register?aff=6T4EYXP2&amp;ref_source=link"><strong>Infistar.cc</strong></a>
-    </td>
-    <td align="left">
-      本オープンソースプロジェクトを支援してくださっている <a href="https://infistar.cc/register?aff=6T4EYXP2&amp;ref_source=link"><strong>Infistar.cc</strong></a> に感謝します！コストパフォーマンスに優れた AI API サービスで、大規模言語モデルは<strong>公式料金の 1% から</strong>、AI 画像生成は<strong>1 枚あたり 0.06 元から</strong>利用できます。<br>
-      <strong>API キー 1 つでテキスト・画像・動画を生成</strong>。GPT、Claude、Gemini、DeepSeek、Qwen、Kling などの主要モデルに対応し、API グループを分ける必要はありません。<br>
-      <strong>全モデルの真正性を検証可能</strong>。料金は透明で、中国での ICP 届出を行っており、人民元でのリアルタイム課金と<strong>法人向けの請求書発行</strong>に対応しています。<br>
-      🎁 MPT 限定特典：<a href="https://infistar.cc/register?aff=6T4EYXP2&amp;ref_source=link">専用リンクから登録</a>すると、<strong>5 米ドル分のトライアルクレジット</strong>と初回チャージの優待を受けられます。
-    </td>
-  </tr>
-  <tr>
-    <td align="center" width="120">
-      <a href="https://www.shengsuanyun.com/?from=CH_XUQ4OTSK"><img src="docs/sponsors/shengsuanyun-logo.jpg" alt="Shengsuan Cloud" height="56"></a><br>
-      <a href="https://www.shengsuanyun.com/?from=CH_XUQ4OTSK"><strong>Shengsuan Cloud</strong></a>
-    </td>
-    <td align="left">
-      本プロジェクトをスポンサードしてくださっている <a href="https://www.shengsuanyun.com/?from=CH_XUQ4OTSK">Shengsuan Cloud</a> に感謝します！ Shengsuan Cloud は AI ネイティブなチーム向けの API 集約プラットフォームで、Claude、ChatGPT、Gemini などの主要な言語モデルやマルチモーダルモデルを、統一 API と従量課金で利用できます。<br>
-      コンプライアンスに配慮した API サービスに加え、チームのコスト・権限管理、インテリジェントルーティング、セキュリティ対策、BYOK による認証情報管理、請求書発行に対応するエンタープライズゲートウェイも提供しています。<br>
-      🎁 <a href="https://www.shengsuanyun.com/?from=CH_XUQ4OTSK">こちらのリンク</a>から新規登録すると、10 元分のトライアルクレジットを受け取れます。
-    </td>
-  </tr>
-  <tr>
-    <td align="center" width="120">
-      <a href="https://reccloud.com"><img src="docs/sponsors/reccloud-logo.svg" alt="RecCloud" height="36"></a><br>
-      <a href="https://reccloud.com">RecCloud</a>
-    </td>
-    <td align="left">
-      本プロジェクトをベースにした無料の <strong>AI 動画生成ツール</strong>を提供してくださっている <a href="https://reccloud.com">RecCloud（AI マルチメディアプラットフォーム）</a> に感謝します。デプロイ不要でオンラインですぐに使えるため、初心者にも手軽にご利用いただけます。
-    </td>
-  </tr>
-  <tr>
-    <td align="center" width="120">
-      <a href="https://picwish.com"><img src="docs/sponsors/picwish-logo.svg" alt="Picwish" height="36"></a><br>
-      <a href="https://picwish.com">Picwish</a>
-    </td>
-    <td align="left">
-      本プロジェクトを支援・スポンサードしてくださっている <a href="https://picwish.com">Picwish</a> に感謝します！Picwish は豊富な<strong>オンライン画像編集ツール</strong>を提供し、さまざまな画像の加工を簡単な操作で行えます。
-    </td>
-  </tr>
-</table>
-
-## 作者によるもう 1 つのオープンソースプロジェクト: MangoDisk ⭐
-
-<p align="center">
-  <a href="https://mangodisk.app/ja">
-    <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="https://assets.mangodisk.app/images/screenshots/ja/dark-01-deep-cleanup.jpg?ver=1.1.0">
-      <source media="(prefers-color-scheme: light)" srcset="https://assets.mangodisk.app/images/screenshots/ja/light-01-deep-cleanup.jpg?ver=1.1.0">
-      <img src="https://assets.mangodisk.app/images/screenshots/ja/light-01-deep-cleanup.jpg?ver=1.1.0" width="900" alt="MangoDisk ディープクリーン画面">
-    </picture>
-  </a>
-</p>
-
-<p align="center">
-  <strong>macOS・Windows 向けのオープンソースのディスククリーンアップ、容量分析、システム最適化ツール</strong><br>
-  キャッシュ、大容量ファイル、重複ファイル、アプリの残骸を整理し、容量分析、アプリのアンインストール、スタートアップ管理、システム最適化・メンテナンスにも対応します。
-</p>
-
-<p align="center">
-  <a href="https://mangodisk.app/ja">MangoDisk 公式サイト</a> · <a href="https://github.com/harry0703/MangoDisk">GitHub で見る</a>
-</p>
-
----
-
 ## 機能 🎯
 
 ### 制作フロー
@@ -147,14 +40,14 @@
 ### 台本とモデルプロバイダー
 
 - [x] AI による**多言語動画台本**の生成・リライトに加え、独自台本の利用にも対応
-- [x] [Kimi / Moonshot AI](https://platform.kimi.ai?track_id=track-9e3b711aa2594e378f6fe5b8de718a76&aff=moneyprinterturbo)、[OpenAI](https://platform.openai.com/api-keys)、[Anthropic Claude](https://platform.claude.com/settings/keys)、[Google Gemini](https://aistudio.google.com/app/apikey)、[DeepSeek](https://platform.deepseek.com/api_keys)、[Alibaba Cloud Qwen](https://qwen.ai/apiplatform)、[Microsoft Azure OpenAI](https://portal.azure.com/#view/Microsoft_Azure_ProjectOxford/CognitiveServicesHub/~/OpenAI)、[ByteDance VolcEngine Ark](https://console.volcengine.com/ark)、[xAI Grok](https://console.x.ai/)、[MiniMax](https://platform.minimax.io/)、[Xiaomi MiMo](https://platform.xiaomimimo.com/docs/zh-CN/quick-start/first-api-call) などの主要なモデルサービスに対応
-- [x] [Shengsuan Cloud](https://www.shengsuanyun.com/?from=CH_XUQ4OTSK)、[APIMart](https://go.apimart.ai/gh-moneyprinterturbo)、[Cloudflare AI Gateway](https://dash.cloudflare.com/)、[Alibaba ModelScope](https://modelscope.cn/docs/model-service/API-Inference/intro)、[AIHubMix](https://aihubmix.com/)、[AIML API](https://aimlapi.com/app/keys)、[EvoLink](https://evolink.ai/dashboard/keys)、[OpenRouter](https://openrouter.ai/settings/keys)、[API Route](https://www.api-route.com/)、[Ollama](https://ollama.com/)、[Claude Code サブスクリプション](https://code.claude.com/docs)、[OneAPI](https://github.com/songquanpeng/one-api)、[LiteLLM](https://docs.litellm.ai/docs/providers)、[Groq](https://console.groq.com/keys)、[Pollinations AI](https://enter.pollinations.ai/) などの統合ゲートウェイ、集約サービス、ローカルランタイムに対応
+- [x] [Kimi / Moonshot AI](https://platform.kimi.ai)、[OpenAI](https://platform.openai.com/api-keys)、[Anthropic Claude](https://platform.claude.com/settings/keys)、[Google Gemini](https://aistudio.google.com/app/apikey)、[DeepSeek](https://platform.deepseek.com/api_keys)、[Alibaba Cloud Qwen](https://qwen.ai/apiplatform)、[Microsoft Azure OpenAI](https://portal.azure.com/#view/Microsoft_Azure_ProjectOxford/CognitiveServicesHub/~/OpenAI)、[ByteDance VolcEngine Ark](https://console.volcengine.com/ark)、[xAI Grok](https://console.x.ai/)、[MiniMax](https://platform.minimax.io/)、[Xiaomi MiMo](https://platform.xiaomimimo.com/docs/zh-CN/quick-start/first-api-call) などの主要なモデルサービスに対応
+- [x] [Shengsuan Cloud](https://www.shengsuanyun.com)、[APIMart](https://apimart.ai)、[Cloudflare AI Gateway](https://dash.cloudflare.com/)、[Alibaba ModelScope](https://modelscope.cn/docs/model-service/API-Inference/intro)、[AIHubMix](https://aihubmix.com/)、[AIML API](https://aimlapi.com/app/keys)、[EvoLink](https://evolink.ai/dashboard/keys)、[OpenRouter](https://openrouter.ai/settings/keys)、[API Route](https://www.api-route.com/)、[Ollama](https://ollama.com/)、[Claude Code サブスクリプション](https://code.claude.com/docs)、[OneAPI](https://github.com/songquanpeng/one-api)、[LiteLLM](https://docs.litellm.ai/docs/providers)、[Groq](https://console.groq.com/keys)、[Pollinations AI](https://enter.pollinations.ai/) などの統合ゲートウェイ、集約サービス、ローカルランタイムに対応
 
 ### 動画・画像素材
 
 - [x] 手持ちの**ローカル画像・動画**をアップロードできるほか、[Pexels（無料）](https://www.pexels.com/api/)、[Pixabay（無料）](https://pixabay.com/api/docs/)、[Coverr](https://coverr.co/developers?ctx=header_navigation) の高画質ストック素材を利用可能
-- [x] [Metaso MiniMax H3](https://metaso.cn/minimax-h3/?s=MPT) によるテキスト動画生成に対応し、`768P`／`2K`、4～15 秒の素材を `9:16`、`16:9`、`1:1` の 3 種類のアスペクト比で生成可能
-- [x] [Shengsuan Cloud AI Video](https://www.shengsuanyun.com/?from=CH_XUQ4OTSK) で複数の AI 動画素材を生成し、プロジェクトのナレーション、字幕、編集フローで 1 本の動画に合成可能
+- [x] [Metaso MiniMax H3](https://metaso.cn) によるテキスト動画生成に対応し、`768P`／`2K`、4～15 秒の素材を `9:16`、`16:9`、`1:1` の 3 種類のアスペクト比で生成可能
+- [x] [Shengsuan Cloud AI Video](https://www.shengsuanyun.com) で複数の AI 動画素材を生成し、プロジェクトのナレーション、字幕、編集フローで 1 本の動画に合成可能
 - [x] [Volcano Engine Ark Seedance](https://console.volcengine.com/ark/region:ark+cn-beijing/apikey) をネイティブに統合し、台本の各セグメントから一貫した動画素材を生成可能
 - [x] [WaveSpeed AI](https://wavespeed.ai) によるテキスト動画生成で、台本のキーワードからオリジナル素材を作成可能
 - [x] [OFox](https://ofox.ai) のマルチモデルテキスト動画生成に対応し、1 つの API キーで Seedance、Wan などのモデルを利用可能
@@ -487,10 +380,10 @@ model_size = "large-v3-turbo"
 
 > 初回利用時、Whisper は Hugging Face からモデルを自動的にダウンロードします。自動ダウンロードに失敗する場合は、[Hugging Face](https://huggingface.co/Systran/faster-whisper-large-v3) から `whisper-large-v3` を手動でダウンロードしてください。
 
-モデルを展開したら、ディレクトリ全体を `.\MoneyPrinterTurbo\models` に配置します。最終的なパスは `.\MoneyPrinterTurbo\models\whisper-large-v3` になります:
+モデルを展開したら、ディレクトリ全体を `.\AisenStudio\models` に配置します。最終的なパスは `.\AisenStudio\models\whisper-large-v3` になります:
 
 ```
-MoneyPrinterTurbo
+AisenStudio
   ├─models
   │   └─whisper-large-v3
   │          config.json
@@ -528,7 +421,7 @@ Install ffmpeg on your system, or set the IMAGEIO_FFMPEG_EXE environment variabl
 ```toml
 [app]
 # 実際のパスに合わせて設定してください。Windows のパス区切り文字は \\ である点に注意してください
-ffmpeg_path = "C:\\Users\\harry\\Downloads\\ffmpeg.exe"
+ffmpeg_path = "C:\\ffmpeg\\bin\\ffmpeg.exe"
 ```
 
 </details>

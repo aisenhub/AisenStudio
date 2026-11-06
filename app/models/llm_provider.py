@@ -203,31 +203,15 @@ LLM_PROVIDER_REGISTRY = (
                 endpoint_id="china",
                 default_label="China",
                 base_url="https://api.moonshot.cn/v1",
-                api_key_url=(
-                    "https://platform.kimi.com?"
-                    "track_id=track-6eec1e56a4494e52adcaebbcbbefce59&"
-                    "aff=moneyprinterturbo"
-                ),
-                model_docs_url=(
-                    "https://platform.kimi.com/docs/models?"
-                    "track_id=track-6eec1e56a4494e52adcaebbcbbefce59&"
-                    "aff=moneyprinterturbo"
-                ),
+                api_key_url="https://platform.kimi.com",
+                model_docs_url="https://platform.kimi.com/docs/models",
             ),
             LLMProviderEndpoint(
                 endpoint_id="global",
                 default_label="Global",
                 base_url="https://api.moonshot.ai/v1",
-                api_key_url=(
-                    "https://platform.kimi.ai?"
-                    "track_id=track-9e3b711aa2594e378f6fe5b8de718a76&"
-                    "aff=moneyprinterturbo"
-                ),
-                model_docs_url=(
-                    "https://platform.kimi.ai/docs/models?"
-                    "track_id=track-9e3b711aa2594e378f6fe5b8de718a76&"
-                    "aff=moneyprinterturbo"
-                ),
+                api_key_url="https://platform.kimi.ai",
+                model_docs_url="https://platform.kimi.ai/docs/models",
             ),
         ),
         default_service_endpoint_id="china",
@@ -255,15 +239,15 @@ LLM_PROVIDER_REGISTRY = (
                 endpoint_id="china",
                 default_label="China",
                 base_url="https://api.kimi.com/coding/v1",
-                api_key_url="https://www.kimi.com/code?aff=moneyprinterturbo",
-                model_docs_url="https://platform.kimi.com/docs/models?aff=moneyprinterturbo",
+                api_key_url="https://www.kimi.com/code",
+                model_docs_url="https://platform.kimi.com/docs/models",
             ),
             LLMProviderEndpoint(
                 endpoint_id="global",
                 default_label="Global",
                 base_url="https://api.kimi.ai/coding/v1",
-                api_key_url="https://www.kimi.ai/code?aff=moneyprinterturbo",
-                model_docs_url="https://platform.kimi.ai/docs/models?aff=moneyprinterturbo",
+                api_key_url="https://www.kimi.ai/code",
+                model_docs_url="https://platform.kimi.ai/docs/models",
             ),
         ),
         default_service_endpoint_id="china",
@@ -331,11 +315,7 @@ LLM_PROVIDER_REGISTRY = (
     LLMProviderSpec(
         "volcengine",
         "ByteDance VolcEngine Ark",
-        api_key_url=(
-            "https://www.volcengine.com/activity/ai618?utm_campaign=hw&"
-            "utm_content=hw&utm_medium=devrel_tool_web&utm_source=OWO&"
-            "utm_term=MoneyPrinterTurbo"
-        ),
+        api_key_url="https://console.volcengine.com/ark",
         default_model="doubao-seed-2-1-turbo-260628",
         default_base_url="https://ark.cn-beijing.volces.com/api/v3",
     ),
@@ -377,7 +357,7 @@ LLM_PROVIDER_REGISTRY = (
     LLMProviderSpec(
         "shengsuanyun",
         "Shengsuan Cloud",
-        api_key_url="https://www.shengsuanyun.com/?from=CH_XUQ4OTSK",
+        api_key_url="https://www.shengsuanyun.com",
         default_model="deepseek/deepseek-v4-flash",
         default_base_url="https://router.shengsuanyun.com/api/v1",
     ),
@@ -387,7 +367,7 @@ LLM_PROVIDER_REGISTRY = (
     LLMProviderSpec(
         "apimart",
         "APIMart",
-        api_key_url="https://go.apimart.ai/gh-moneyprinterturbo",
+        api_key_url="https://apimart.ai",
         default_model="gpt-5.6-terra",
         default_base_url="https://api.apimart.ai/v1",
     ),

@@ -289,7 +289,7 @@ class TestWebuiI18n(unittest.TestCase):
     def test_shengsuanyun_provider_tips_keep_registration_and_model_links(self):
         """合作入口和模型目录属于产品配置，避免后续改文案时误删追踪链接。"""
         expected_urls = {
-            "https://www.shengsuanyun.com/?from=CH_XUQ4OTSK",
+            "https://www.shengsuanyun.com",
             "https://global.modelmesh.info/model",
         }
 
@@ -306,7 +306,7 @@ class TestWebuiI18n(unittest.TestCase):
 
     def test_metaso_api_key_label_keeps_mpt_referral_link(self):
         """秘塔 Key 获取入口必须保留 MPT 追踪参数，避免赞助转化链路失效。"""
-        expected_url = "https://metaso.cn/minimax-h3/?s=MPT"
+        expected_url = "https://metaso.cn/minimax-h3"
 
         for locale in ("zh", "en"):
             with self.subTest(locale=locale):
