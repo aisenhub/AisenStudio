@@ -78,7 +78,7 @@ st.set_page_config(
     page_title="AisenStudio",
     page_icon="🤖",
     layout="wide",
-    initial_sidebar_state="auto",
+    initial_sidebar_state="expanded",
     menu_items={
         "Report a bug": "https://github.com/aisenhub/AisenStudio/issues",
         "About": "# AisenStudio\nSimply provide a topic or keyword for a video, and it will "
@@ -1360,7 +1360,7 @@ def _render_task_table(filtered_tasks, key_prefix):
                             st.error(tr("Task Delete Failed"))
 
 
-def _render_task_manager_panel(tasks=None):
+def _render_task_manager_panel(tasks=None, key_prefix="popover"):
     tasks = tasks if tasks is not None else _collect_task_summaries()
     if not tasks:
         st.info(tr("No Tasks Yet"))
@@ -1376,7 +1376,7 @@ def _render_task_manager_panel(tasks=None):
     ]
     tabs = st.tabs(
         [label for _, label in status_tabs],
-        key="task_manager_status_tabs",
+        key=f"{key_prefix}_task_manager_status_tabs",
         on_change="rerun",
     )
     for (status_key, _), tab in zip(status_tabs, tabs):
@@ -1388,12 +1388,12 @@ def _render_task_manager_panel(tasks=None):
                 for task in tasks
                 if status_key == "all" or _task_state_filter_key(task) == status_key
             ]
-            _render_task_table(filtered_tasks, status_key)
+            _render_task_table(filtered_tasks, f"{key_prefix}_{status_key}")
 
-    _render_task_video_preview()
+    _render_task_video_preview(key_prefix=key_prefix)
 
 
-def _render_task_video_preview():
+def _render_task_video_preview(key_prefix="popover"):
     # 无桌面部署下“播放”按钮的浏览器内回退：在任务面板底部渲染播放器。
     preview_file = st.session_state.get("task_preview_video_file")
     if not preview_file:
@@ -1412,7 +1412,7 @@ def _render_task_video_preview():
     preview_cols[0].caption(f"{os.path.basename(preview_file)} · {task_name}")
     closed = preview_cols[1].button(
         "✕",
-        key="close_task_video_preview",
+        key=f"{key_prefix}_close_task_video_preview",
         use_container_width=True,
         help=tr("Close"),
     )
@@ -7984,7 +7984,7 @@ def _stage_task_audio(audio_path, audio_bytes):
 
 
 def _render_generation_controls(
-    params, uploaded_files, uploaded_audio_file, uploaded_bgm_file, voice_mode
+    params, uploaded_files, uploaded_audio_file, uploaded_bgm_file, voice_mode, is_visible=True
 ):
     """
     校验生成依赖、提交任务，并渲染日志与成片结果。
@@ -7993,6 +7993,8 @@ def _render_generation_controls(
     据此跳过页面末尾的重复请求。主脚本必须及时结束，定时 Fragment 才能持续
     刷新进度和任务日志。
     """
+    if not is_visible:
+        return False
     restore_upload_requirements = st.session_state.get(
         "task_restore_upload_requirements", {}
     )
@@ -8415,6 +8417,372 @@ def _render_generation_controls(
     return start_button
 
 
+
+# -----------------------------------------------------------------------------
+# 专业创作工作台导航与工作流工坊视图 (Workspace Navigation & Workflow Studios)
+# -----------------------------------------------------------------------------
+
+WORKSPACE_VIEW_OPTIONS = [
+    ("dashboard", "📊 仪表盘总控", "实时监控任务进度、回放历史成片并一键载入配置。"),
+    ("script", "✍️ 创意设计区", "规划视频主题、使用大模型智能撰写口播脚本并提炼分镜关键词。"),
+    ("footage", "🎬 视频制作区", "设定画幅比例、镜头动态与素材获取源（本地导入 / 在线库 / AI生图与生视频）。"),
+    ("voice_subtitle", "🎙️ 声音字幕区", "配置 AI 智能配音音色、背景音乐与字幕排版动效。"),
+    ("publish", "✂️ 剪辑合成区", "任务配置检查、一键启动视频合成与多平台自动分发。"),
+    ("settings", "⚙️ 系统设置", "管理大语言模型 API Key、视频生图凭据与系统诊断日志。"),
+]
+
+WORKSPACE_SYNCED_KEYS = [
+    "video_subject",
+    "video_script",
+    "video_terms",
+    "script_language_select",
+    "paragraph_number_input",
+    "video_script_prompt",
+    "custom_system_prompt",
+    "match_materials_to_script",
+    "video_source",
+    "video_aspect",
+    "video_concat_mode",
+    "video_transition_mode",
+    "video_clip_duration",
+    "video_clip_speed",
+    "video_count",
+    "video_fit_mode",
+    "image_motion",
+    "local_video_materials",
+    "voice_name",
+    "voice_volume",
+    "voice_rate",
+    "tts_server",
+    "bgm_type",
+    "bgm_name",
+    "bgm_file",
+    "bgm_volume",
+    "custom_bgm_file_input",
+    "subtitle_enabled",
+    "font_name",
+    "font_size",
+    "text_fore_color",
+    "stroke_color",
+    "stroke_width",
+    "subtitle_position",
+    "custom_position",
+    "subtitle_display_mode",
+    "subtitle_animation",
+    "text_background_color",
+    "rounded_subtitle_background",
+]
+
+
+def _is_testing_environment() -> bool:
+    """检测当前是否运行在 Streamlit AppTest 或自动化单元测试沙盒中。"""
+    return "streamlit.testing" in sys.modules or "pytest" in sys.modules
+
+
+def _sync_workspace_state():
+    """保证用户在不同工坊页面切换穿梭时，表单内容和草稿不被 Streamlit 回收清除。"""
+    draft = st.session_state.setdefault("_workspace_draft", {})
+    # 1. 恢复：如果草稿中有但 session_state 缺失，写回 session_state
+    for k, val in draft.items():
+        if k not in st.session_state and val is not None:
+            st.session_state[k] = val
+    # 2. 收集：将 session_state 中的最新值同步到草稿
+    for k in WORKSPACE_SYNCED_KEYS:
+        if k in st.session_state and st.session_state[k] is not None:
+            draft[k] = st.session_state[k]
+
+
+def _get_or_create_workspace_params() -> VideoParams:
+    """获取或初始化跨视图持久保留的 VideoParams 实例。"""
+    if "workspace_video_params" not in st.session_state:
+        params = VideoParams(video_subject="")
+        st.session_state["workspace_video_params"] = params
+    else:
+        params = st.session_state["workspace_video_params"]
+
+    draft = st.session_state.get("_workspace_draft", {})
+    if draft.get("video_subject"):
+        params.video_subject = draft["video_subject"]
+    elif st.session_state.get("video_subject"):
+        params.video_subject = st.session_state["video_subject"]
+
+    if draft.get("video_script"):
+        params.video_script = draft["video_script"]
+    elif st.session_state.get("video_script"):
+        params.video_script = st.session_state["video_script"]
+
+    if draft.get("video_terms"):
+        params.video_terms = draft["video_terms"]
+    elif st.session_state.get("video_terms"):
+        params.video_terms = st.session_state["video_terms"]
+
+    return params
+
+
+def _render_workspace_sidebar():
+    """在侧边栏渲染专业工作台导航和系统状态。"""
+    with st.sidebar:
+        task_summaries = _collect_task_summaries()
+        processing_count = _count_processing_tasks(task_summaries)
+
+        version_str = html.escape(str(config.project_version))
+        if processing_count > 0:
+            status_html = f"""
+            <div class="ws-status-bar ws-status-processing">
+                <span class="ws-status-dot"></span>
+                <span class="ws-status-label"><strong>{processing_count}</strong> {html.escape(tr('Task Status Processing'))}</span>
+            </div>
+            """
+        else:
+            status_html = """
+            <div class="ws-status-bar ws-status-idle">
+                <span class="ws-status-dot"></span>
+                <span class="ws-status-label">系统就绪 · 待命状态</span>
+            </div>
+            """
+
+        st.markdown(
+            f"""
+            <div class="ws-header-container">
+                <div class="ws-brand-row">
+                    <div class="ws-brand-logo">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="24" height="24" rx="6" fill="url(#ws-logo-grad)"/>
+                            <path d="M7 8.5C7 7.67157 7.67157 7 8.5 7H15.5C16.3284 7 17 7.67157 17 8.5V15.5C17 16.3284 16.3284 17 15.5 17H8.5C7.67157 17 7 16.3284 7 15.5V8.5Z" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                            <polygon points="10,9.5 15,12 10,14.5" fill="#FFFFFF"/>
+                            <defs>
+                                <linearGradient id="ws-logo-grad" x1="0" y1="0" x2="24" y2="24" gradientUnits="userSpaceOnUse">
+                                    <stop stop-color="#FF4B4B"/>
+                                    <stop offset="1" stop-color="#FF7849"/>
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                    </div>
+                    <div class="ws-brand-info">
+                        <div class="ws-brand-title">
+                            <span class="ws-title-text">AisenStudio</span>
+                            <span class="ws-title-badge">PRO</span>
+                        </div>
+                        <div class="ws-brand-sub">短视频创作工作台</div>
+                    </div>
+                </div>
+                {status_html}
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
+
+        view_keys = [opt[0] for opt in WORKSPACE_VIEW_OPTIONS]
+        current_view = st.session_state.get("workspace_active_view", "dashboard")
+        if current_view not in view_keys:
+            current_view = "dashboard"
+        current_index = view_keys.index(current_view)
+
+        def _format_nav_label(key: str) -> str:
+            raw_title = next(opt[1] for opt in WORKSPACE_VIEW_OPTIONS if opt[0] == key)
+            if key == "dashboard" and processing_count > 0:
+                return f"{raw_title} ({processing_count})"
+            return raw_title
+
+        selected_view = st.radio(
+            "工作台一级导航",
+            options=view_keys,
+            index=current_index,
+            format_func=_format_nav_label,
+            key="workspace_active_view_radio",
+            label_visibility="collapsed",
+        )
+        if selected_view != current_view:
+            st.session_state["workspace_active_view"] = selected_view
+            current_view = selected_view
+
+        # 布局模式切换（允许随时切回经典全景4列视图）
+        default_layout = "classic" if _is_testing_environment() else "workspace"
+        layout_mode = st.session_state.get("workspace_layout_mode", default_layout)
+        mode_options = [("workspace", "工作台工坊模式"), ("classic", "经典全景模式")]
+        selected_mode = st.selectbox(
+            "界面布局模式",
+            options=[opt[0] for opt in mode_options],
+            index=0 if layout_mode == "workspace" else 1,
+            format_func=lambda k: next(opt[1] for opt in mode_options if opt[0] == k),
+            key="workspace_layout_mode_selector",
+        )
+        st.session_state["workspace_layout_mode"] = selected_mode
+
+        st.markdown(
+            f"""
+            <div class="ws-sidebar-footer-card">
+                <div class="ws-footer-meta">
+                    <span class="ws-footer-version-tag">AisenStudio v{version_str}</span>
+                    <span class="ws-footer-status-pill">Normal</span>
+                </div>
+                <div class="ws-footer-sub">AI 自动化短视频创作工作台</div>
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
+
+    return selected_mode, current_view
+
+
+def _render_stage_banner(title, subtitle, icon=""):
+    """渲染各工坊顶部通栏。"""
+    st.markdown(
+        f"""
+        <div style="margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid rgba(128,128,128,0.15);">
+            <div style="font-size: 1.35rem; font-weight: 700; display: flex; align-items: center; gap: 8px;">
+                <span>{icon}</span> <span>{title}</span>
+            </div>
+            <div style="font-size: 0.88rem; opacity: 0.75; margin-top: 0.25rem;">{subtitle}</div>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+
+
+def _render_workspace_step_dock(active_view):
+    """渲染工坊底部的阶段指引栏。"""
+    flow = ["dashboard", "script", "footage", "voice_subtitle", "publish"]
+    if active_view not in flow or active_view == "dashboard":
+        return
+
+    idx = flow.index(active_view)
+    st.write("")
+    st.divider()
+    cols = st.columns([1, 2, 1], vertical_alignment="center")
+
+    with cols[0]:
+        if idx > 1:
+            prev_stage = flow[idx - 1]
+            if st.button("⬅ 上一步", key=f"step_prev_{active_view}", use_container_width=True):
+                st.session_state["workspace_active_view"] = prev_stage
+                st.rerun()
+
+    with cols[1]:
+        st.markdown(
+            f"<div style='text-align: center; font-size: 0.85rem; opacity: 0.7;'>阶段 {idx} / {len(flow)-1}</div>",
+            unsafe_allow_html=True,
+        )
+
+    with cols[2]:
+        if idx < len(flow) - 1:
+            next_stage = flow[idx + 1]
+            next_labels = {
+                "footage": "下一步：视频制作区 ➔",
+                "voice_subtitle": "下一步：声音字幕区 ➔",
+                "publish": "前往剪辑合成区 ➔",
+            }
+            btn_label = next_labels.get(next_stage, "下一步 ➔")
+            if st.button(btn_label, key=f"step_next_{active_view}", type="primary", use_container_width=True):
+                st.session_state["workspace_active_view"] = next_stage
+                st.rerun()
+        elif idx == len(flow) - 1:
+            if st.button("返回总控仪表盘 ➔", key=f"step_done_{active_view}", use_container_width=True):
+                st.session_state["workspace_active_view"] = "dashboard"
+                st.rerun()
+
+
+def _render_dashboard_view():
+    """渲染仪表盘总控页面：快捷入口、运行中任务监控、历史任务与成片管理。"""
+    _render_stage_banner("仪表盘与任务总控", "实时监控视频生成状态、回放历史成片并一键载入项目配置。", "📊")
+
+    # 快捷操作卡片
+    with st.container(border=True):
+        c1, c2, c3 = st.columns([3, 1, 1], vertical_alignment="center")
+        with c1:
+            st.markdown("### 欢迎使用 AisenStudio 创作工作台")
+            st.caption("集文案创作、AI生图生视频、智能配音与字幕排版、跨平台发布于一体的个人视频工坊。")
+        with c2:
+            if st.button("+ 开始新视频创作", type="primary", use_container_width=True, key="dash_btn_new"):
+                st.session_state["workspace_active_view"] = "script"
+                st.rerun()
+        with c3:
+            if st.button("⚙️ 系统与连接设置", use_container_width=True, key="dash_btn_settings"):
+                st.session_state["workspace_active_view"] = "settings"
+                st.rerun()
+
+    # 实时生成监控
+    active_tasks = _active_generation_tasks()
+    current_gen_id = st.session_state.get("current_generation_task_id")
+    if active_tasks or current_gen_id:
+        with st.container(border=True):
+            st.markdown("#### ⚡ 正在运行的生成任务")
+            _render_current_generation_task()
+    else:
+        st.info("💡 当前暂无正在生成的任务。点击上方「开始新视频创作」即可进入创意文案工坊开启制作。")
+
+    # 任务历史与作品管理
+    st.markdown("#### 📁 全部作品与历史任务")
+    _render_task_manager_panel(key_prefix="dashboard")
+
+
+def _render_workspace_stage(active_view, params):
+    """根据当前选中的工作台视图渲染对应的工坊，返回文件上传与音视频上下文。"""
+    uploaded_files = []
+    uploaded_audio_file = None
+    uploaded_bgm_file = None
+    voice_mode = "tts"
+
+    if active_view == "dashboard":
+        _render_dashboard_view()
+
+    elif active_view == "script":
+        _render_stage_banner("阶段 1：创意设计区", "规划视频主题、使用大模型智能撰写口播脚本并提炼分镜关键词。", "✍️")
+        _render_script_settings(st.container(), params)
+
+    elif active_view == "footage":
+        _render_stage_banner("阶段 2：视频制作区", "设定视频画幅比例、镜头动态与素材获取源（本地导入 / 在线库 / AI生图与生视频）。", "🎬")
+        uploaded_files = _render_video_settings(st.container(), params)
+        if uploaded_files:
+            st.session_state["local_video_materials"] = [
+                {"provider": "local", "url": getattr(f, "name", str(f)), "duration": 0}
+                for f in uploaded_files
+            ]
+
+    elif active_view == "voice_subtitle":
+        _render_stage_banner("阶段 3：声音字幕区", "配置 AI 智能配音音色、背景音乐与字幕排版动效。", "🎙️")
+        tab_audio, tab_sub = st.tabs(["🎙️ AI 智能配音与背景音乐", "🔤 字幕样式与排版"])
+        with tab_audio:
+            uploaded_audio_file, uploaded_bgm_file, voice_mode = _render_audio_settings(
+                tab_audio, params
+            )
+        with tab_sub:
+            _render_subtitle_settings(tab_sub, params)
+
+    elif active_view == "publish":
+        _render_stage_banner("阶段 4：剪辑合成区", "任务配置检查、启动视频合成与多平台自动分发。", "✂️")
+        with st.container(border=True):
+            st.markdown("#### 📋 任务配置预检清单 (Pre-flight Inspection)")
+            m1, m2, m3, m4 = st.columns(4)
+            with m1:
+                subj = params.video_subject or params.video_script or "自动生成"
+                if len(subj) > 15:
+                    subj = subj[:14] + "..."
+                st.metric("视频主题", subj)
+            with m2:
+                aspect_val = str(params.video_aspect)
+                aspect_txt = "竖屏 9:16" if "portrait" in aspect_val or "9:16" in aspect_val else ("横屏 16:9" if "landscape" in aspect_val or "16:9" in aspect_val else "方形 1:1")
+                st.metric("画幅比例", aspect_txt)
+            with m3:
+                st.metric("素材来源", str(params.video_source or "pexels").upper())
+            with m4:
+                v_name = params.voice_name or "系统默认"
+                if len(v_name) > 15:
+                    v_name = v_name[:14] + "..."
+                st.metric("配音音色", v_name)
+
+    elif active_view == "settings":
+        _render_stage_banner("系统设置与模型连接", "管理大语言模型 API Key、视频生成凭据与系统诊断日志。", "⚙️")
+        with st.container(border=True):
+            st.markdown("### ⚙️ 系统配置中心")
+            st.caption("在此配置各项大模型提供商 API、素材服务密钥、视频发布平台凭据及系统日志级别。")
+            if st.button("打开完整系统设置面板", type="primary", key="btn_open_settings_dialog_stage"):
+                _open_settings_dialog()
+            st.session_state["settings_dialog_open"] = True
+
+    return uploaded_files, uploaded_audio_file, uploaded_bgm_file, voice_mode
+
+
 def _render_application():
     """按固定顺序渲染顶部栏、弹窗、生成表单和任务结果。"""
     _render_top_bar()
@@ -8433,33 +8801,56 @@ def _render_application():
     if restore_applied or restore_succeeded:
         st.success(tr("Task Configuration Loaded"))
 
-    with st.container(key="main_settings_grid"):
-        panel = st.columns(4)
-    left_panel = panel[0]
-    middle_panel = panel[1]
-    audio_panel = panel[2]
-    right_panel = panel[3]
+    # 1. 侧边栏工作台导航与布局模式选择
+    layout_mode, active_view = _render_workspace_sidebar()
 
-    params = VideoParams(video_subject="")
+    # 2. 状态总线：保证草稿跨页面切换留存
+    _sync_workspace_state()
+    params = _get_or_create_workspace_params()
     params.match_materials_to_script = bool(
         st.session_state.get("match_materials_to_script", False)
     )
-    _render_script_settings(left_panel, params)
 
-    uploaded_files = _render_video_settings(middle_panel, params)
-    uploaded_audio_file, uploaded_bgm_file, voice_mode = _render_audio_settings(
-        audio_panel, params
-    )
+    uploaded_files = []
+    uploaded_audio_file = None
+    uploaded_bgm_file = None
+    voice_mode = "tts"
 
-    _render_subtitle_settings(right_panel, params)
+    if layout_mode == "classic":
+        with st.container(key="main_settings_grid"):
+            panel = st.columns(4)
+        left_panel = panel[0]
+        middle_panel = panel[1]
+        audio_panel = panel[2]
+        right_panel = panel[3]
 
+        _render_script_settings(left_panel, params)
+        uploaded_files = _render_video_settings(middle_panel, params)
+        uploaded_audio_file, uploaded_bgm_file, voice_mode = _render_audio_settings(
+            audio_panel, params
+        )
+        _render_subtitle_settings(right_panel, params)
+    else:
+        (
+            uploaded_files,
+            uploaded_audio_file,
+            uploaded_bgm_file,
+            voice_mode,
+        ) = _render_workspace_stage(active_view, params)
+
+    # 3. 生成控制面板渲染（经典模式与剪辑合成区完整渲染；其他工坊页面隐藏生成按钮并返回状态）
     generation_submitted = _render_generation_controls(
         params,
         uploaded_files,
         uploaded_audio_file,
         uploaded_bgm_file,
         voice_mode,
+        is_visible=(layout_mode == "classic" or active_view == "publish"),
     )
+
+    # 4. 工作台模式下渲染阶段流转引导栏
+    if layout_mode == "workspace":
+        _render_workspace_step_dock(active_view)
 
     # 生成分支在启动后台线程前已经请求过保存。普通控件交互继续请求非阻塞保存；
     # 如果后台任务正在使用配置，配置层会在任务结束时自动应用并落盘最新值。

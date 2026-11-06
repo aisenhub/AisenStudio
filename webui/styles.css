@@ -484,3 +484,591 @@ div[class*="st-key-task_row_"] button[kind="secondary"] p {
         min-width: 1.75rem !important;
     }
 }
+
+
+/* 保证侧边栏折叠后仍可展开 */
+div[data-testid="stSidebarCollapsedControl"] {
+    display: flex !important;
+    position: fixed !important;
+    top: 0.5rem !important;
+    left: 0.5rem !important;
+    z-index: 9999 !important;
+}
+
+/* -----------------------------------------------------------------------------
+ * AisenStudio 专业工作台工坊侧边栏生产级质感样式体系
+ * ----------------------------------------------------------------------------- */
+
+/* 侧边栏整体外壳与呼吸布局 */
+section[data-testid="stSidebar"] {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Inter", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif !important;
+    background: var(--secondary-background-color, #f8f9fa) !important;
+    border-right: 1px solid rgba(128, 128, 128, 0.12) !important;
+    box-shadow: 1px 0 10px rgba(0, 0, 0, 0.02) !important;
+}
+
+section[data-testid="stSidebar"] div[data-testid="stSidebarUserContent"] {
+    padding-top: 1.15rem !important;
+    padding-bottom: 1.5rem !important;
+    padding-left: 0.95rem !important;
+    padding-right: 0.95rem !important;
+    overflow-x: hidden !important;
+}
+
+/* 侧边栏内部原有原生分割线收敛为内敛细线 */
+section[data-testid="stSidebar"] hr {
+    border: 0 !important;
+    height: 1px !important;
+    background: rgba(128, 128, 128, 0.12) !important;
+    margin: 0.85rem 0 !important;
+}
+
+/* 1. 顶部品牌与工作区 Header */
+.ws-header-container {
+    margin-bottom: 0.9rem;
+    padding-bottom: 0.9rem;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.1);
+}
+
+.ws-brand-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.ws-brand-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    filter: drop-shadow(0 3px 6px rgba(255, 75, 75, 0.28));
+    flex-shrink: 0;
+}
+
+.ws-brand-info {
+    min-width: 0;
+    flex: 1;
+}
+
+.ws-brand-title {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 1.15rem;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    line-height: 1.2;
+    color: var(--text-color, inherit);
+}
+
+.ws-title-badge {
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    padding: 1.5px 6px;
+    border-radius: 9999px;
+    background: linear-gradient(135deg, rgba(255, 75, 75, 0.16) 0%, rgba(255, 120, 73, 0.12) 100%);
+    color: #ff4b4b;
+    border: 1px solid rgba(255, 75, 75, 0.28);
+    line-height: 1.2;
+}
+
+.ws-brand-sub {
+    font-size: 0.72rem;
+    opacity: 0.65;
+    margin-top: 3px;
+    letter-spacing: 0.01em;
+}
+
+/* 科技感动态呼吸状态指示条 */
+.ws-status-bar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 7px 11px;
+    border-radius: 7px;
+    margin-top: 11px;
+    font-size: 0.74rem;
+    font-weight: 500;
+    border: 1px solid rgba(128, 128, 128, 0.1);
+    background: rgba(128, 128, 128, 0.04);
+    color: var(--text-color, inherit);
+    transition: all 0.2s ease;
+}
+
+.ws-status-dot {
+    width: 7.5px;
+    height: 7.5px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.ws-status-bar.ws-status-idle .ws-status-dot {
+    background: #10b981;
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.6);
+    animation: wsPulseIdle 2.5s infinite cubic-bezier(0.4, 0, 0.6, 1);
+}
+
+.ws-status-bar.ws-status-processing {
+    background: rgba(59, 130, 246, 0.08);
+    border-color: rgba(59, 130, 246, 0.25);
+    color: #2563eb;
+}
+
+.ws-status-bar.ws-status-processing .ws-status-dot {
+    background: #3b82f6;
+    box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.7);
+    animation: wsPulseActive 1.4s infinite cubic-bezier(0.4, 0, 0.6, 1);
+}
+
+@keyframes wsPulseIdle {
+    0% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.6);
+    }
+    70% {
+        transform: scale(1);
+        box-shadow: 0 0 0 5px rgba(16, 185, 129, 0);
+    }
+    100% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
+    }
+}
+
+@keyframes wsPulseActive {
+    0% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.7);
+    }
+    70% {
+        transform: scale(1.1);
+        box-shadow: 0 0 0 6px rgba(59, 130, 246, 0);
+    }
+    100% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(59, 130, 246, 0);
+    }
+}
+
+/* 2. 彻底隐藏 Streamlit Radio 原生单选圆圈、外框与原生 input */
+section[data-testid="stSidebar"] div[data-testid="stRadio"] input[type="radio"],
+section[data-testid="stSidebar"] div[data-testid="stRadio"] label > span:first-child,
+section[data-testid="stSidebar"] div[data-testid="stRadio"] label > div > div > div:first-child:not([data-testid="stMarkdownContainer"]),
+section[data-testid="stSidebar"] div[data-testid="stRadio"] label > div:first-child:not([data-testid="stMarkdownContainer"]),
+section[data-testid="stSidebar"] div[data-testid="stRadio"] div[role="radiogroup"] > label > div:first-child:not([data-testid="stMarkdownContainer"]),
+section[data-testid="stSidebar"] div[data-testid="stRadio"] div[data-testid="stRadioGroup"] > label > div:first-child:not([data-testid="stMarkdownContainer"]),
+section[data-testid="stSidebar"] div[data-testid="stRadio"] label svg {
+    display: none !important;
+    visibility: hidden !important;
+    width: 0 !important;
+    height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+}
+
+/* 3. 现代化胶囊卡片式导航项 (Menu Items) */
+section[data-testid="stSidebar"] div[data-testid="stRadio"],
+section[data-testid="stSidebar"] div[class*="st-key-workspace_active_view_radio"],
+section[data-testid="stSidebar"] div[data-testid="stRadio"] > div {
+    width: 100% !important;
+}
+
+section[data-testid="stSidebar"] div[data-testid="stRadio"] div[role="radiogroup"],
+section[data-testid="stSidebar"] div[data-testid="stRadio"] div[data-testid="stRadioGroup"] {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 3px !important;
+    width: 100% !important;
+}
+
+section[data-testid="stSidebar"] div[data-testid="stRadio"] div[role="radiogroup"] > label,
+section[data-testid="stSidebar"] div[data-testid="stRadio"] div[data-testid="stRadioGroup"] > label {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    width: 100% !important;
+    min-width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: transparent !important;
+    border: none !important;
+    cursor: pointer !important;
+}
+
+section[data-testid="stSidebar"] div[data-testid="stRadio"] div[role="radiogroup"] > label > div,
+section[data-testid="stSidebar"] div[data-testid="stRadio"] div[data-testid="stRadioGroup"] > label > div {
+    display: flex !important;
+    align-items: center !important;
+    width: 100% !important;
+    min-width: 100% !important;
+    min-height: 2.45rem !important;
+    padding: 0.5rem 0.85rem 0.5rem 1.05rem !important;
+    border-radius: 8px !important;
+    position: relative !important;
+    transition: background-color 0.16s ease, border-color 0.16s ease, box-shadow 0.16s ease, color 0.16s ease, transform 0.16s ease !important;
+    border: 1px solid transparent !important;
+    background: transparent;
+    box-sizing: border-box !important;
+}
+
+section[data-testid="stSidebar"] div[data-testid="stRadio"] div[role="radiogroup"] > label > div > div,
+section[data-testid="stSidebar"] div[data-testid="stRadio"] div[data-testid="stRadioGroup"] > label > div > div {
+    display: flex !important;
+    align-items: center !important;
+    width: 100% !important;
+    gap: 0 !important;
+    margin: 0 !important;
+}
+
+section[data-testid="stSidebar"] div[data-testid="stRadio"] div[role="radiogroup"] > label [data-testid="stMarkdownContainer"],
+section[data-testid="stSidebar"] div[data-testid="stRadio"] div[data-testid="stRadioGroup"] > label [data-testid="stMarkdownContainer"] {
+    display: flex !important;
+    align-items: center !important;
+    width: 100% !important;
+}
+
+section[data-testid="stSidebar"] div[data-testid="stRadio"] div[role="radiogroup"] > label [data-testid="stMarkdownContainer"] p,
+section[data-testid="stSidebar"] div[data-testid="stRadio"] div[data-testid="stRadioGroup"] > label [data-testid="stMarkdownContainer"] p {
+    margin: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    font-size: 0.88rem !important;
+    font-weight: 500 !important;
+    line-height: 1.4 !important;
+    letter-spacing: -0.01em !important;
+    color: var(--text-color, inherit) !important;
+    opacity: 0.85 !important;
+    transition: all 0.15s ease !important;
+}
+
+/* 悬浮微动效 (Hover) */
+section[data-testid="stSidebar"] div[data-testid="stRadio"] div[role="radiogroup"] > label:hover > div,
+section[data-testid="stSidebar"] div[data-testid="stRadio"] div[data-testid="stRadioGroup"] > label:hover > div {
+    background: rgba(128, 128, 128, 0.08) !important;
+    border-color: rgba(128, 128, 128, 0.12) !important;
+    transform: translateX(2px) !important;
+}
+
+section[data-testid="stSidebar"] div[data-testid="stRadio"] div[role="radiogroup"] > label:hover [data-testid="stMarkdownContainer"] p,
+section[data-testid="stSidebar"] div[data-testid="stRadio"] div[data-testid="stRadioGroup"] > label:hover [data-testid="stMarkdownContainer"] p {
+    opacity: 1 !important;
+}
+
+/* 选中激活态高亮卡片 (Active State) */
+section[data-testid="stSidebar"] div[data-testid="stRadio"] div[role="radiogroup"] > label[data-selected="true"] > div,
+section[data-testid="stSidebar"] div[data-testid="stRadio"] div[role="radiogroup"] > label:has(input:checked) > div,
+section[data-testid="stSidebar"] div[data-testid="stRadio"] div[data-testid="stRadioGroup"] > label[data-selected="true"] > div,
+section[data-testid="stSidebar"] div[data-testid="stRadio"] div[data-testid="stRadioGroup"] > label:has(input:checked) > div {
+    background: linear-gradient(90deg, rgba(255, 75, 75, 0.12) 0%, rgba(255, 75, 75, 0.03) 100%) !important;
+    border: 1px solid rgba(255, 75, 75, 0.28) !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02), 0 2px 8px rgba(255, 75, 75, 0.08) !important;
+}
+
+section[data-testid="stSidebar"] div[data-testid="stRadio"] div[role="radiogroup"] > label[data-selected="true"] [data-testid="stMarkdownContainer"] p,
+section[data-testid="stSidebar"] div[data-testid="stRadio"] div[role="radiogroup"] > label:has(input:checked) [data-testid="stMarkdownContainer"] p,
+section[data-testid="stSidebar"] div[data-testid="stRadio"] div[data-testid="stRadioGroup"] > label[data-selected="true"] [data-testid="stMarkdownContainer"] p,
+section[data-testid="stSidebar"] div[data-testid="stRadio"] div[data-testid="stRadioGroup"] > label:has(input:checked) [data-testid="stMarkdownContainer"] p {
+    font-weight: 600 !important;
+    color: #ff4b4b !important;
+    opacity: 1 !important;
+}
+
+/* 左侧主题色激活指示条 (Active Indicator Strip) */
+section[data-testid="stSidebar"] div[data-testid="stRadio"] div[role="radiogroup"] > label[data-selected="true"] > div::before,
+section[data-testid="stSidebar"] div[data-testid="stRadio"] div[role="radiogroup"] > label:has(input:checked) > div::before,
+section[data-testid="stSidebar"] div[data-testid="stRadio"] div[data-testid="stRadioGroup"] > label[data-selected="true"] > div::before,
+section[data-testid="stSidebar"] div[data-testid="stRadio"] div[data-testid="stRadioGroup"] > label:has(input:checked) > div::before {
+    content: "" !important;
+    position: absolute !important;
+    left: 0 !important;
+    top: 6px !important;
+    bottom: 6px !important;
+    width: 3.5px !important;
+    border-radius: 0 3px 3px 0 !important;
+    background: var(--primary-color, #ff4b4b) !important;
+    box-shadow: 0 0 10px rgba(255, 75, 75, 0.5) !important;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+/* 4. 导航分组副标题 (Section Headers) 与角标 (Badges) */
+
+/* 导航分组 1：概览总控 */
+div[class*="st-key-workspace_active_view_radio"] div[role="radiogroup"] > label:nth-child(1)::before,
+div[class*="st-key-workspace_active_view_radio"] div[data-testid="stRadioGroup"] > label:nth-child(1)::before {
+    content: "概览总控 · OVERVIEW" !important;
+    display: block !important;
+    font-size: 0.68rem !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.08em !important;
+    text-transform: uppercase !important;
+    color: rgba(140, 145, 155, 0.88) !important;
+    padding: 0.35rem 0.45rem 0.4rem 0.45rem !important;
+    margin-bottom: 3px !important;
+    pointer-events: none !important;
+    user-select: none !important;
+}
+
+/* 导航分组 2：核心创作工坊流水线 */
+div[class*="st-key-workspace_active_view_radio"] div[role="radiogroup"] > label:nth-child(2),
+div[class*="st-key-workspace_active_view_radio"] div[data-testid="stRadioGroup"] > label:nth-child(2) {
+    margin-top: 16px !important;
+    padding-top: 12px !important;
+    border-top: 1px solid rgba(128, 128, 128, 0.12) !important;
+}
+
+div[class*="st-key-workspace_active_view_radio"] div[role="radiogroup"] > label:nth-child(2)::before,
+div[class*="st-key-workspace_active_view_radio"] div[data-testid="stRadioGroup"] > label:nth-child(2)::before {
+    content: "核心工坊 · WORKFLOW" !important;
+    display: block !important;
+    font-size: 0.68rem !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.08em !important;
+    text-transform: uppercase !important;
+    color: rgba(140, 145, 155, 0.88) !important;
+    padding: 0.35rem 0.45rem 0.4rem 0.45rem !important;
+    margin-bottom: 3px !important;
+    pointer-events: none !important;
+    user-select: none !important;
+}
+
+/* 导航分组 3：系统偏好与配置 */
+div[class*="st-key-workspace_active_view_radio"] div[role="radiogroup"] > label:nth-child(6),
+div[class*="st-key-workspace_active_view_radio"] div[data-testid="stRadioGroup"] > label:nth-child(6) {
+    margin-top: 16px !important;
+    padding-top: 12px !important;
+    border-top: 1px solid rgba(128, 128, 128, 0.12) !important;
+}
+
+div[class*="st-key-workspace_active_view_radio"] div[role="radiogroup"] > label:nth-child(6)::before,
+div[class*="st-key-workspace_active_view_radio"] div[data-testid="stRadioGroup"] > label:nth-child(6)::before {
+    content: "系统与偏好 · SYSTEM" !important;
+    display: block !important;
+    font-size: 0.68rem !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.08em !important;
+    text-transform: uppercase !important;
+    color: rgba(140, 145, 155, 0.88) !important;
+    padding: 0.35rem 0.45rem 0.4rem 0.45rem !important;
+    margin-bottom: 3px !important;
+    pointer-events: none !important;
+    user-select: none !important;
+}
+
+/* 剪辑合成区精美小角标 (Badge) - 预留右侧安全间距，避免遮挡文字 */
+div[class*="st-key-workspace_active_view_radio"] div[role="radiogroup"] > label:nth-child(5) > div,
+div[class*="st-key-workspace_active_view_radio"] div[data-testid="stRadioGroup"] > label:nth-child(5) > div {
+    padding-right: 3.8rem !important;
+}
+
+div[class*="st-key-workspace_active_view_radio"] div[role="radiogroup"] > label:nth-child(5) > div::after,
+div[class*="st-key-workspace_active_view_radio"] div[data-testid="stRadioGroup"] > label:nth-child(5) > div::after {
+    content: "AUTO" !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    position: absolute !important;
+    right: 12px !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    font-size: 0.6rem !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.05em !important;
+    padding: 2px 6px !important;
+    border-radius: 4px !important;
+    background: rgba(255, 75, 75, 0.12) !important;
+    color: #ff4b4b !important;
+    border: 1px solid rgba(255, 75, 75, 0.25) !important;
+    pointer-events: none !important;
+    line-height: 1.1 !important;
+    transition: all 0.15s ease !important;
+}
+
+div[class*="st-key-workspace_active_view_radio"] div[role="radiogroup"] > label:nth-child(5)[data-selected="true"] > div::after,
+div[class*="st-key-workspace_active_view_radio"] div[role="radiogroup"] > label:nth-child(5):has(input:checked) > div::after,
+div[class*="st-key-workspace_active_view_radio"] div[data-testid="stRadioGroup"] > label:nth-child(5)[data-selected="true"] > div::after,
+div[class*="st-key-workspace_active_view_radio"] div[data-testid="stRadioGroup"] > label:nth-child(5):has(input:checked) > div::after {
+    background: #ff4b4b !important;
+    color: #ffffff !important;
+    border-color: #ff4b4b !important;
+    box-shadow: 0 0 8px rgba(255, 75, 75, 0.4) !important;
+}
+
+/* 5. 底部布局模式选择器美化与版本信息面板 */
+div[class*="st-key-workspace_layout_mode_selector"] {
+    margin-top: 1.25rem !important;
+    padding: 0.75rem 0.85rem !important;
+    border-radius: 8px !important;
+    background: rgba(128, 128, 128, 0.03) !important;
+    border: 1px solid rgba(128, 128, 128, 0.09) !important;
+}
+
+div[class*="st-key-workspace_layout_mode_selector"] label[data-testid="stWidgetLabel"] p {
+    font-size: 0.68rem !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.06em !important;
+    color: rgba(128, 128, 128, 0.75) !important;
+    margin-bottom: 0.35rem !important;
+}
+
+div[class*="st-key-workspace_layout_mode_selector"] div[data-baseweb="select"] > div {
+    border-radius: 6px !important;
+    background: rgba(128, 128, 128, 0.05) !important;
+    border: 1px solid rgba(128, 128, 128, 0.14) !important;
+    font-size: 0.82rem !important;
+    font-weight: 500 !important;
+    min-height: 2.15rem !important;
+    height: 2.15rem !important;
+    transition: border-color 0.15s ease !important;
+}
+
+/* 底部版本与系统状态微型面板 */
+.ws-sidebar-footer-card {
+    margin-top: 0.75rem;
+    padding: 0.75rem 0.85rem;
+    border-radius: 8px;
+    background: rgba(128, 128, 128, 0.025);
+    border: 1px solid rgba(128, 128, 128, 0.09);
+}
+
+.ws-footer-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.ws-footer-version-tag {
+    color: rgba(128, 128, 128, 0.9);
+    letter-spacing: -0.01em;
+}
+
+.ws-footer-status-pill {
+    font-size: 0.62rem;
+    font-weight: 700;
+    padding: 1.5px 6px;
+    border-radius: 4px;
+    background: rgba(16, 185, 129, 0.12);
+    color: #10b981;
+    border: 1px solid rgba(16, 185, 129, 0.25);
+}
+
+.ws-footer-sub {
+    font-size: 0.68rem;
+    color: rgba(128, 128, 128, 0.65);
+    margin-top: 4px;
+    line-height: 1.3;
+}
+
+/* 6. 暗黑模式自适应深度适配 (同时支持系统 Dark 与 Streamlit 内部 Dark 主题) */
+@media (prefers-color-scheme: dark) {
+    section[data-testid="stSidebar"] {
+        background: #111215 !important;
+        border-right: 1px solid rgba(255, 255, 255, 0.08) !important;
+        box-shadow: 1px 0 16px rgba(0, 0, 0, 0.3) !important;
+    }
+
+    .ws-brand-title {
+        color: rgba(255, 255, 255, 0.95);
+    }
+
+    .ws-brand-sub {
+        color: rgba(255, 255, 255, 0.55);
+    }
+
+    .ws-status-bar {
+        background: rgba(255, 255, 255, 0.03);
+        border-color: rgba(255, 255, 255, 0.08);
+        color: rgba(255, 255, 255, 0.8);
+    }
+
+    .ws-status-bar.ws-status-processing {
+        background: rgba(59, 130, 246, 0.15);
+        border-color: rgba(59, 130, 246, 0.35);
+        color: #93c5fd;
+    }
+
+    section[data-testid="stSidebar"] div[data-testid="stRadio"] div[role="radiogroup"] > label:hover > div,
+    section[data-testid="stSidebar"] div[data-testid="stRadio"] div[data-testid="stRadioGroup"] > label:hover > div {
+        background: rgba(255, 255, 255, 0.06) !important;
+        border-color: rgba(255, 255, 255, 0.1) !important;
+    }
+
+    section[data-testid="stSidebar"] div[data-testid="stRadio"] div[role="radiogroup"] > label[data-selected="true"] > div,
+    section[data-testid="stSidebar"] div[data-testid="stRadio"] div[role="radiogroup"] > label:has(input:checked) > div,
+    section[data-testid="stSidebar"] div[data-testid="stRadio"] div[data-testid="stRadioGroup"] > label[data-selected="true"] > div,
+    section[data-testid="stSidebar"] div[data-testid="stRadio"] div[data-testid="stRadioGroup"] > label:has(input:checked) > div {
+        background: linear-gradient(90deg, rgba(255, 75, 75, 0.22) 0%, rgba(255, 75, 75, 0.06) 100%) !important;
+        border: 1px solid rgba(255, 75, 75, 0.35) !important;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3), 0 0 12px rgba(255, 75, 75, 0.15) !important;
+    }
+
+    section[data-testid="stSidebar"] div[data-testid="stRadio"] div[role="radiogroup"] > label[data-selected="true"] [data-testid="stMarkdownContainer"] p,
+    section[data-testid="stSidebar"] div[data-testid="stRadio"] div[role="radiogroup"] > label:has(input:checked) [data-testid="stMarkdownContainer"] p,
+    section[data-testid="stSidebar"] div[data-testid="stRadio"] div[data-testid="stRadioGroup"] > label[data-selected="true"] [data-testid="stMarkdownContainer"] p,
+    section[data-testid="stSidebar"] div[data-testid="stRadio"] div[data-testid="stRadioGroup"] > label:has(input:checked) [data-testid="stMarkdownContainer"] p {
+        color: #ff6b6b !important;
+    }
+
+    div[class*="st-key-workspace_layout_mode_selector"] {
+        background: rgba(255, 255, 255, 0.03) !important;
+        border-color: rgba(255, 255, 255, 0.08) !important;
+    }
+
+    div[class*="st-key-workspace_layout_mode_selector"] div[data-baseweb="select"] > div {
+        background: rgba(255, 255, 255, 0.05) !important;
+        border-color: rgba(255, 255, 255, 0.12) !important;
+    }
+
+    .ws-sidebar-footer-card {
+        border-color: rgba(255, 255, 255, 0.08);
+        background: rgba(255, 255, 255, 0.02);
+    }
+}
+
+[data-theme="dark"] section[data-testid="stSidebar"],
+.stApp[data-theme="dark"] section[data-testid="stSidebar"],
+[data-base-theme-type="dark"] section[data-testid="stSidebar"] {
+    background: #111215 !important;
+    border-right: 1px solid rgba(255, 255, 255, 0.08) !important;
+    box-shadow: 1px 0 16px rgba(0, 0, 0, 0.3) !important;
+}
+
+[data-theme="dark"] .ws-brand-title,
+.stApp[data-theme="dark"] .ws-brand-title {
+    color: rgba(255, 255, 255, 0.95);
+}
+
+[data-theme="dark"] .ws-brand-sub,
+.stApp[data-theme="dark"] .ws-brand-sub {
+    color: rgba(255, 255, 255, 0.55);
+}
+
+[data-theme="dark"] .ws-status-bar,
+.stApp[data-theme="dark"] .ws-status-bar {
+    background: rgba(255, 255, 255, 0.03);
+    border-color: rgba(255, 255, 255, 0.08);
+    color: rgba(255, 255, 255, 0.8);
+}
+
+[data-theme="dark"] section[data-testid="stSidebar"] div[data-testid="stRadio"] div[role="radiogroup"] > label:hover > div,
+.stApp[data-theme="dark"] section[data-testid="stSidebar"] div[data-testid="stRadio"] div[role="radiogroup"] > label:hover > div {
+    background: rgba(255, 255, 255, 0.06) !important;
+    border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+[data-theme="dark"] section[data-testid="stSidebar"] div[data-testid="stRadio"] div[role="radiogroup"] > label[data-selected="true"] > div,
+.stApp[data-theme="dark"] section[data-testid="stSidebar"] div[data-testid="stRadio"] div[role="radiogroup"] > label[data-selected="true"] > div {
+    background: linear-gradient(90deg, rgba(255, 75, 75, 0.22) 0%, rgba(255, 75, 75, 0.06) 100%) !important;
+    border: 1px solid rgba(255, 75, 75, 0.35) !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3), 0 0 12px rgba(255, 75, 75, 0.15) !important;
+}
+
+
