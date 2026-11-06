@@ -1810,42 +1810,38 @@ def _render_top_bar():
                 on_click=_open_settings_dialog,
             )
 
+            def _on_top_language_change():
+                selected_lang = st.session_state.get("top_language_code_selector")
+                previous_lang = st.session_state.get("ui_language", "")
+                if selected_lang and selected_lang != previous_lang:
+                    logger.info(
+                        "UI language changed by user: "
+                        f"previous_language={previous_lang or '<empty>'}, "
+                        f"selected_language={selected_lang}"
+                    )
+                    st.session_state["ui_language"] = selected_lang
+                    _set_runtime_config("ui", "language", selected_lang)
+                    _save_runtime_config()
+                    for content_key in ("video_subject", "video_script", "video_terms"):
+                        if content_key in st.session_state:
+                            st.session_state[content_key] = st.session_state[content_key]
+
             language_codes = list(locales.keys())
             selected_index = 0
             for i, code in enumerate(language_codes):
                 if code == st.session_state.get("ui_language", ""):
                     selected_index = i
 
-            selected_language_code = st.selectbox(
+            st.selectbox(
                 "Language / 语言",
                 options=language_codes,
                 index=selected_index,
                 format_func=lambda code: locales[code].get("Language", code),
                 key="top_language_code_selector",
+                on_change=_on_top_language_change,
                 label_visibility="collapsed",
                 width=180,
             )
-            if selected_language_code:
-                previous_language = st.session_state.get("ui_language", "")
-                if selected_language_code != previous_language:
-                    logger.info(
-                        "UI language changed by user: "
-                        f"previous_language={previous_language or '<empty>'}, "
-                        f"selected_language={selected_language_code}"
-                    )
-                    st.session_state["ui_language"] = selected_language_code
-                    # 浏览器自动识别只影响当前会话；只有用户主动切换下拉框时才
-                    # 写入 config.toml，后续新会话将优先使用该明确选择。
-                    _set_runtime_config("ui", "language", selected_language_code)
-                    _save_runtime_config()
-                    # 切换语言会先重跑顶部栏，正文控件尚未渲染就触发 rerun。
-                    # 显式保留本次创作内容，防止 Streamlit 清理旧控件状态后，
-                    # 新语言页面把已经输入的主题、文案和关键词重置为空。
-                    for content_key in ("video_subject", "video_script", "video_terms"):
-                        if content_key in st.session_state:
-                            st.session_state[content_key] = st.session_state[content_key]
-                    # 切换语言后强制刷新，避免 selectbox 继续展示旧语言文案。
-                    st.rerun()
 
 
 support_locales = [

@@ -490,14 +490,13 @@ def resolve_ui_language(
     saved_language: str | None,
     browser_locale: str | None,
     supported_languages: Iterable[str],
-    default_language: str = "en",
+    default_language: str = "zh",
 ) -> str:
     """
-    按“已保存设置、浏览器语言、默认语言”的优先级选择界面语言。
+    按“已保存设置、默认语言（中文）、浏览器语言”的优先级选择界面语言。
 
-    浏览器通常返回带地区的 locale，例如 ``zh-CN``、``pt-BR``。语言文件使用
-    ``zh``、``pt`` 这类基础代码，因此先尝试完整匹配，再回退到连字符前的语言
-    代码。函数保持纯逻辑，避免把浏览器上下文和配置写入耦合到工具层，便于测试。
+    项目默认使用中文 (zh) 作为界面语言，同时保留英文 (en)。
+    未保存设置时默认使用中文；用户在界面主动切换后优先以已保存选择为准。
     """
     supported = [str(language).strip() for language in supported_languages]
     supported_by_lower = {
@@ -517,16 +516,14 @@ def resolve_ui_language(
     if saved_match:
         return saved_match
 
-    browser_match = match_language(browser_locale)
-    if browser_match:
-        return browser_match
-
     default_match = match_language(default_language)
     if default_match:
         return default_match
 
-    # 正常项目始终包含英文；保留空语言集合兜底，避免损坏的语言目录让页面
-    # 初始化直接抛异常，后续翻译函数会继续显示原始 key 以便诊断。
+    browser_match = match_language(browser_locale)
+    if browser_match:
+        return browser_match
+
     return supported[0] if supported else default_language
 
 
@@ -541,7 +538,15 @@ def load_locales(i18n_dir):
                 lang = file.split(".")[0]
                 with open(os.path.join(root, file), "r", encoding="utf-8-sig") as f:
                     _locales[lang] = json.loads(f.read())
-    return _locales
+    # 按照中文在前、英文在后的顺序返回，保证下拉框优先展示中文
+    ordered_locales = {}
+    for lang in ("zh", "en"):
+        if lang in _locales:
+            ordered_locales[lang] = _locales[lang]
+    for lang, val in _locales.items():
+        if lang not in ordered_locales:
+            ordered_locales[lang] = val
+    return ordered_locales
 
 
 def parse_extension(filename):

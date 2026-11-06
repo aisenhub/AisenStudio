@@ -6,3 +6,6 @@ toolbarMode = "minimal"
 
 [logger]
 hideWelcomeMessage = true
+
+[server]
+fileWatcherType = "none"
