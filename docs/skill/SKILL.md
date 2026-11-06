@@ -5,7 +5,7 @@ compatibility: Requires an AI agent with terminal, network, filesystem, and long
 metadata:
   author: "harry0703@hotmail.com"
   version: "1.3.2"
-  upstream: "https://github.com/harry0703/MoneyPrinterTurbo"
+  upstream: "https://github.com/aisenhub/AisenStudio"
 ---
 
 # MoneyPrinterTurbo Video Generation
@@ -37,7 +37,7 @@ This is required on Windows because some agent terminal validators remove backsl
 If the client loaded only the remote `SKILL.md`, download the helper from the official repository to a temporary directory, then use that temporary directory as the command working directory:
 
 ```text
-https://raw.githubusercontent.com/harry0703/MoneyPrinterTurbo/main/docs/skill/mpt_agent.py
+https://raw.githubusercontent.com/aisenhub/AisenStudio/main/docs/skill/mpt_agent.py
 ```
 
 ### 2. Run the helper

@@ -21,7 +21,7 @@ from pathlib import Path
 
 
 PROJECT_ARCHIVE_URL = (
-    "https://github.com/harry0703/MoneyPrinterTurbo/archive/refs/heads/main.zip"
+    "https://github.com/aisenhub/AisenStudio/archive/refs/heads/main.zip"
 )
 DEFAULT_ROOT = Path.home() / "MoneyPrinterTurbo"
 DEFAULT_VOICE_NAME = "zh-CN-XiaoxiaoNeural-Female"

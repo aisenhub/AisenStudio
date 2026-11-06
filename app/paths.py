@@ -25,14 +25,14 @@ def runtime_root() -> Path:
     if is_source_checkout():
         return SOURCE_ROOT
     if sys.platform == "darwin":
-        return Path.home() / "Library" / "Application Support" / "MoneyPrinterTurbo"
+        return Path.home() / "Library" / "Application Support" / "AisenStudio"
     if sys.platform == "win32":
         base = Path(os.environ.get("LOCALAPPDATA") or Path.home() / "AppData" / "Local")
     else:
         base = Path(os.environ.get("XDG_DATA_HOME") or Path.home() / ".local" / "share")
         if not base.is_absolute():
             base = Path.home() / ".local" / "share"
-    return base / "MoneyPrinterTurbo"
+    return base / "AisenStudio"
 
 
 def config_template() -> Path:

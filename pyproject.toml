@@ -8,7 +8,7 @@ build-backend = "hatchling.build"
 [project]
 name = "mpt"
 version = "1.3.9"
-description = "Official MoneyPrinterTurbo package with WebUI and CLI, maintained by harry0703."
+description = "Official AisenStudio package with WebUI and CLI."
 readme = "docs/pypi-description.md"
 requires-python = ">=3.11"
 license = { text = "MIT" }
@@ -46,8 +46,8 @@ dependencies = [
 mpt = "app.launcher:main"
 
 [project.urls]
-Homepage = "https://github.com/harry0703/MoneyPrinterTurbo"
-Issues = "https://github.com/harry0703/MoneyPrinterTurbo/issues"
+Homepage = "https://github.com/aisenhub/AisenStudio"
+Issues = "https://github.com/aisenhub/AisenStudio/issues"
 
 [project.optional-dependencies]
 # Optional TwelveLabs (https://twelvelabs.io) video-understanding/embedding

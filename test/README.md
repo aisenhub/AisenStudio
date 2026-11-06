@@ -1,6 +1,6 @@
-# MoneyPrinterTurbo Test Directory
+# AisenStudio Test Directory
 
-This directory contains unit tests for the **MoneyPrinterTurbo** project.
+This directory contains unit tests for the **AisenStudio** project.
 
 ## Directory Structure
 

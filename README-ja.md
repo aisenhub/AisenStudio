@@ -1,20 +1,20 @@
 <div align="center">
 
-# MoneyPrinterTurbo 💸
+# AisenStudio 💸
 
 ### オールインワン AI ショート動画生成ツール
 
 動画の<b>テーマ</b>または<b>キーワード</b>を指定するだけで、MoneyPrinterTurbo が台本の生成、素材のマッチング、字幕と BGM の作成を行い、高画質のショート動画を出力します。
 
-[![Version](https://img.shields.io/github/v/release/harry0703/MoneyPrinterTurbo?color=blue&label=version)](https://github.com/harry0703/MoneyPrinterTurbo/releases)
-[![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20macOS%20%7C%20Linux-lightgrey.svg)](https://github.com/harry0703/MoneyPrinterTurbo/releases/latest)
+[![Version](https://img.shields.io/github/v/release/aisenhub/AisenStudio?color=blue&label=version)](https://github.com/aisenhub/AisenStudio/releases)
+[![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20macOS%20%7C%20Linux-lightgrey.svg)](https://github.com/aisenhub/AisenStudio/releases/latest)
 [![Python](https://img.shields.io/badge/python-3.11%2B-3776AB?logo=python&logoColor=white)](https://www.python.org/)
-[![Downloads](https://img.shields.io/github/downloads/harry0703/MoneyPrinterTurbo/total)](https://github.com/harry0703/MoneyPrinterTurbo/releases/latest)
+[![Downloads](https://img.shields.io/github/downloads/aisenhub/AisenStudio/total)](https://github.com/aisenhub/AisenStudio/releases/latest)
 
 <a href="https://trendshift.io/repositories/8731" target="_blank"><img src="https://trendshift.io/api/badge/repositories/8731" alt="harry0703%2FMoneyPrinterTurbo | Trendshift" style="width: 250px; height: 55px;" width="250" height="55"/></a>
-<a href="https://www.star-history.com/harry0703/moneyprinterturbo"><img src="https://api.star-history.com/badge?repo=harry0703/MoneyPrinterTurbo" alt="Star History Rank" style="height: 55px;" height="55"/></a>
+<a href="https://www.star-history.com/aisenhub/AisenStudio"><img src="https://api.star-history.com/badge?repo=aisenhub/AisenStudio" alt="Star History Rank" style="height: 55px;" height="55"/></a>
 
-日本語 | [English](README-en.md) | [简体中文](README.md) | [リリース](https://github.com/harry0703/MoneyPrinterTurbo/releases) | [Issues](https://github.com/harry0703/MoneyPrinterTurbo/issues)
+日本語 | [English](README-en.md) | [简体中文](README.md) | [リリース](https://github.com/aisenhub/AisenStudio/releases) | [Issues](https://github.com/aisenhub/AisenStudio/issues)
 
 </div>
 
@@ -242,7 +242,7 @@
 お使いの AI エージェントが Skill ドキュメントを読み、ローカルのターミナルを操作できるなら、以下のプロンプトを送ってください。エージェントが MoneyPrinterTurbo のインストールと設定を行い、動画を生成して、動画ファイルのパスを返します。未設定の必須 API キーだけを尋ねてきます。このワークフローは現在 macOS と Windows に対応しています。
 
 ```text
-Use this Skill: https://raw.githubusercontent.com/harry0703/MoneyPrinterTurbo/main/docs/skill/SKILL.md
+Use this Skill: https://raw.githubusercontent.com/aisenhub/AisenStudio/main/docs/skill/SKILL.md
 Create a video with the topic "How AI is changing everyday life."
 ```
 
@@ -250,13 +250,13 @@ Create a video with the topic "How AI is changing everyday life."
 
 ローカル環境を用意せずに MoneyPrinterTurbo を試したいですか？ Google Colab で直接実行できます！
 
-[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/harry0703/MoneyPrinterTurbo/blob/main/docs/MoneyPrinterTurbo.ipynb)
+[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/aisenhub/AisenStudio/blob/main/docs/MoneyPrinterTurbo.ipynb)
 
 ### Windows
 
 GitHub Releases から最新の Windows 用ワンクリックパッケージをダウンロードし、そのまま展開してください。
 
-- [最新の Windows 用ワンクリックパッケージをダウンロード](https://github.com/harry0703/MoneyPrinterTurbo/releases/latest)
+- [最新の Windows 用ワンクリックパッケージをダウンロード](https://github.com/aisenhub/AisenStudio/releases/latest)
 
 > 同ページの **Assets** から `.7z` ファイルをダウンロードしてください。GitHub が
 > 自動生成する `Source code (zip)` / `Source code (tar.gz)` はソースコードのみで、
@@ -330,7 +330,7 @@ CLI での動画生成については `mpt cli --help` を参照してくださ�
 #### ① プロジェクトをクローンする
 
 ```shell
-git clone https://github.com/harry0703/MoneyPrinterTurbo.git
+git clone https://github.com/aisenhub/AisenStudio.git
 ```
 
 #### ② 初期設定を行う
@@ -348,11 +348,11 @@ Windows をお使いの場合は、Microsoft のドキュメントを参照し�
 2. [WSL で Docker コンテナを使用する](https://learn.microsoft.com/en-us/windows/wsl/tutorials/wsl-containers)
 
 ```shell
-cd MoneyPrinterTurbo
+cd AisenStudio
 docker compose -f docker-compose.release.yml up
 ```
 
-> 既定では `docker-compose.release.yml` を推奨します。GitHub Container Registry からビルド済みイメージ `ghcr.io/harry0703/moneyprinterturbo:latest` を取得します。
+> 既定では `docker-compose.release.yml` を推奨します。GitHub Container Registry からビルド済みイメージ `ghcr.io/aisenhub/AisenStudio:latest` を取得します。
 > ローカルでイメージをビルドする必要がある場合は、これまでどおり `docker compose up` を実行できます。
 > 初回起動の前に、`config.example.toml` を `config.toml` にコピーしておくと、コンテナにマウントされます。
 
@@ -373,8 +373,8 @@ docker compose -f docker-compose.release.yml up
 [uv](https://docs.astral.sh/uv/) を使って Python 環境と依存関係を管理します。本プロジェクトは Python 3.11 以降に対応しており、以下の例では Python 3.11 を使用します。
 
 ```shell
-git clone https://github.com/harry0703/MoneyPrinterTurbo.git
-cd MoneyPrinterTurbo
+git clone https://github.com/aisenhub/AisenStudio.git
+cd AisenStudio
 uv python install 3.11
 uv sync --frozen
 ```
@@ -576,7 +576,7 @@ Trying to load the model directly from the local cache, if it exists.
 
 ## フィードバックと提案 📢
 
-- [issue](https://github.com/harry0703/MoneyPrinterTurbo/issues) または [pull request](https://github.com/harry0703/MoneyPrinterTurbo/pulls) を送っていただけます。
+- [issue](https://github.com/aisenhub/AisenStudio/issues) または [pull request](https://github.com/aisenhub/AisenStudio/pulls) を送っていただけます。
 
 ## ライセンス 📝
 

@@ -1,20 +1,20 @@
 <div align="center">
 
-# MoneyPrinterTurbo 💸
+# AisenStudio 💸
 
 ### 一站式 AI 短视频生成工具
 
 只需提供视频<b>主题</b>或<b>关键词</b>，即可自动生成视频脚本、匹配素材、生成字幕和背景音乐，并合成高清短视频。
 
-[![Version](https://img.shields.io/github/v/release/harry0703/MoneyPrinterTurbo?color=blue&label=version)](https://github.com/harry0703/MoneyPrinterTurbo/releases)
-[![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20macOS%20%7C%20Linux-lightgrey.svg)](https://github.com/harry0703/MoneyPrinterTurbo/releases/latest)
+[![Version](https://img.shields.io/github/v/release/aisenhub/AisenStudio?color=blue&label=version)](https://github.com/aisenhub/AisenStudio/releases)
+[![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20macOS%20%7C%20Linux-lightgrey.svg)](https://github.com/aisenhub/AisenStudio/releases/latest)
 [![Python](https://img.shields.io/badge/python-3.11%2B-3776AB?logo=python&logoColor=white)](https://www.python.org/)
-[![Downloads](https://img.shields.io/github/downloads/harry0703/MoneyPrinterTurbo/total)](https://github.com/harry0703/MoneyPrinterTurbo/releases/latest)
+[![Downloads](https://img.shields.io/github/downloads/aisenhub/AisenStudio/total)](https://github.com/aisenhub/AisenStudio/releases/latest)
 
 <a href="https://trendshift.io/repositories/8731" target="_blank"><img src="https://trendshift.io/api/badge/repositories/8731" alt="harry0703%2FMoneyPrinterTurbo | Trendshift" style="width: 250px; height: 55px;" width="250" height="55"/></a>
-<a href="https://www.star-history.com/harry0703/moneyprinterturbo"><img src="https://api.star-history.com/badge?repo=harry0703/MoneyPrinterTurbo" alt="Star History Rank" style="height: 55px;" height="55"/></a>
+<a href="https://www.star-history.com/aisenhub/AisenStudio"><img src="https://api.star-history.com/badge?repo=aisenhub/AisenStudio" alt="Star History Rank" style="height: 55px;" height="55"/></a>
 
-简体中文 | [English](README-en.md) | [日本語](README-ja.md) | [版本发布](https://github.com/harry0703/MoneyPrinterTurbo/releases) | [问题反馈](https://github.com/harry0703/MoneyPrinterTurbo/issues)
+简体中文 | [English](README-en.md) | [日本語](README-ja.md) | [版本发布](https://github.com/aisenhub/AisenStudio/releases) | [问题反馈](https://github.com/aisenhub/AisenStudio/issues)
 
 </div>
 
@@ -279,7 +279,7 @@
 如果你的 AI Agent 支持读取 Skill 文档并操作本地终端，可以直接发送下面这段话。Agent 会自动完成安装、配置和视频生成；只有缺少必要的 API Key 时才会向你询问，完成后会返回生成的视频文件路径。目前支持 macOS 和 Windows。
 
 ```text
-使用这个 Skill：https://raw.githubusercontent.com/harry0703/MoneyPrinterTurbo/main/docs/skill/SKILL.md
+使用这个 Skill：https://raw.githubusercontent.com/aisenhub/AisenStudio/main/docs/skill/SKILL.md
 帮我生成一个主题为“人工智能如何改变普通人的日常生活”的视频。
 ```
 
@@ -287,13 +287,13 @@
 
 免去本地环境配置，点击直接在 Google Colab 中快速体验 MoneyPrinterTurbo
 
-[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/harry0703/MoneyPrinterTurbo/blob/main/docs/MoneyPrinterTurbo.ipynb)
+[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/aisenhub/AisenStudio/blob/main/docs/MoneyPrinterTurbo.ipynb)
 
 ### Windows 一键启动包
 
 下载一键启动包，解压直接使用（路径不要有 **中文**、**特殊字符**、**空格**）
 
-- [下载最新 Windows 一键启动包](https://github.com/harry0703/MoneyPrinterTurbo/releases/latest)
+- [下载最新 Windows 一键启动包](https://github.com/aisenhub/AisenStudio/releases/latest)
 
 > 请在页面下方的 **Assets** 区域下载 `.7z` 压缩包。GitHub 自动生成的
 > `Source code (zip)` / `Source code (tar.gz)` 只是源码，解压后只有 `webui.bat`，
@@ -360,7 +360,7 @@ WebUI 会自动打开浏览器。指定端口且不自动打开浏览器时，�
 #### ① 克隆代码
 
 ```shell
-git clone https://github.com/harry0703/MoneyPrinterTurbo.git
+git clone https://github.com/aisenhub/AisenStudio.git
 ```
 
 #### ② 首次配置
@@ -379,11 +379,11 @@ Windows 用户可以参考微软的文档：
 2. [在 WSL 中使用 Docker 容器](https://learn.microsoft.com/zh-cn/windows/wsl/tutorials/wsl-containers)
 
 ```shell
-cd MoneyPrinterTurbo
+cd AisenStudio
 docker compose -f docker-compose.release.yml up
 ```
 
-> 默认推荐使用 `docker-compose.release.yml`，它会直接拉取 GitHub Container Registry 上的预构建镜像：`ghcr.io/harry0703/moneyprinterturbo:latest`。
+> 默认推荐使用 `docker-compose.release.yml`，它会直接拉取 GitHub Container Registry 上的预构建镜像：`ghcr.io/aisenhub/AisenStudio:latest`。
 > 如果你需要本地重新构建镜像，可以继续使用 `docker compose up`。
 > 首次启动前，请将 `config.example.toml` 复制为 `config.toml`，供容器挂载使用。
 
@@ -409,8 +409,8 @@ docker compose -f docker-compose.release.yml up
 推荐使用 [uv](https://docs.astral.sh/uv/) 管理 Python 环境和依赖。项目支持 Python 3.11 或更高版本，以下示例使用 Python 3.11。
 
 ```shell
-git clone https://github.com/harry0703/MoneyPrinterTurbo.git
-cd MoneyPrinterTurbo
+git clone https://github.com/aisenhub/AisenStudio.git
+cd AisenStudio
 uv python install 3.11
 uv sync --frozen
 ```
@@ -617,7 +617,7 @@ Trying to load the model directly from the local cache, if it exists.
 
 ## 反馈建议 📢
 
-- 可以提交 [issue](https://github.com/harry0703/MoneyPrinterTurbo/issues) 或者 [pull request](https://github.com/harry0703/MoneyPrinterTurbo/pulls)。
+- 可以提交 [issue](https://github.com/aisenhub/AisenStudio/issues) 或者 [pull request](https://github.com/aisenhub/AisenStudio/pulls)。
 
 ## 许可证 📝
 

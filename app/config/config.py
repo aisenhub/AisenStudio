@@ -664,10 +664,10 @@ hostname = socket.gethostname()
 log_level = _cfg.get("log_level", "DEBUG")
 listen_host = _cfg.get("listen_host", "0.0.0.0")
 listen_port = _cfg.get("listen_port", 8080)
-project_name = _cfg.get("project_name", "MoneyPrinterTurbo")
+project_name = _cfg.get("project_name", "AisenStudio")
 project_description = _cfg.get(
     "project_description",
-    "<a href='https://github.com/harry0703/MoneyPrinterTurbo'>https://github.com/harry0703/MoneyPrinterTurbo</a>",
+    "<a href='https://github.com/aisenhub/AisenStudio'>https://github.com/aisenhub/AisenStudio</a>",
 )
 project_version = _cfg.get("project_version", __version__)
 reload_debug = False
