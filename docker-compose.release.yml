@@ -4,7 +4,7 @@ x-common-volumes: &common-volumes
 
 services:
   webui:
-    image: ghcr.io/harry0703/aisenstudio:latest
+    image: ghcr.io/aisenhub/aisenstudio:latest
     container_name: "aisenstudio-webui"
     ports:
       - "127.0.0.1:8501:8501"
@@ -12,7 +12,7 @@ services:
     volumes: *common-volumes
     restart: always
   api:
-    image: ghcr.io/harry0703/aisenstudio:latest
+    image: ghcr.io/aisenhub/aisenstudio:latest
     container_name: "aisenstudio-api"
     ports:
       - "127.0.0.1:8080:8080"
