@@ -47,6 +47,12 @@ class TestWorkspaceSidebar(unittest.TestCase):
         self.assertIn('@media (prefers-color-scheme: dark)', content)
         self.assertIn('[data-theme="dark"]', content)
 
+        # 8. 验证侧边栏折叠唤出控件（防止折叠后无法重新展开）
+        self.assertIn('div[data-testid="stSidebarCollapsedControl"]', content)
+        self.assertIn('pointer-events: auto !important', content)
+        self.assertIn('展开工作台导航', content)
+        self.assertNotIn('header[data-testid="stHeader"] {\n    display: none !important', content)
+
     def test_sidebar_app_integration(self):
         """验证侧边栏在 Streamlit AppTest 环境下的集成与状态联动。"""
         app = AppTest.from_file(str(WEBUI_MAIN), default_timeout=30)

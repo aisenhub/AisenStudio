@@ -1,5 +1,29 @@
-header[data-testid="stHeader"],
-div[data-testid="stToolbar"],
+/* -----------------------------------------------------------------------------
+ * 页面顶栏及原生控件重置
+ * 注意：不可对 header[data-testid="stHeader"] 设置 display:none，否则侧边栏折叠后
+ * 的展开控件 div[data-testid="stSidebarCollapsedControl"] 会被浏览器判定为不可见而消失。
+ * 此处将 header 设为透明、0高度并点击穿透，仅隐藏不需要的装饰条和状态菜单。
+ * ----------------------------------------------------------------------------- */
+header[data-testid="stHeader"] {
+    background: transparent !important;
+    height: 0 !important;
+    min-height: 0 !important;
+    border: none !important;
+    box-shadow: none !important;
+    z-index: 99999 !important;
+    pointer-events: none !important;
+}
+
+div[data-testid="stToolbar"] {
+    background: transparent !important;
+    border: none !important;
+    height: 0 !important;
+    min-height: 0 !important;
+    pointer-events: none !important;
+}
+
+div[data-testid="stToolbarActions"],
+button[data-testid="stMainMenu"],
 div[data-testid="stDecoration"],
 div[data-testid="stStatusWidget"],
 div[data-testid="stSkillsNudgeAnchor"],
@@ -486,13 +510,76 @@ div[class*="st-key-task_row_"] button[kind="secondary"] p {
 }
 
 
-/* 保证侧边栏折叠后仍可展开 */
+/* -----------------------------------------------------------------------------
+ * 侧边栏折叠与唤出控制（生产级工作台展开悬浮胶囊控件）
+ * 保证折叠后在左上角具备极其醒目、现代且优雅的展开按钮，支持随时一键唤出侧边栏
+ * ----------------------------------------------------------------------------- */
 div[data-testid="stSidebarCollapsedControl"] {
     display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
     position: fixed !important;
-    top: 0.5rem !important;
-    left: 0.5rem !important;
-    z-index: 9999 !important;
+    top: 0.65rem !important;
+    left: 0.75rem !important;
+    z-index: 100000 !important;
+}
+
+div[data-testid="stSidebarCollapsedControl"] button {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 0.45rem !important;
+    padding: 0.4rem 0.85rem !important;
+    height: 34px !important;
+    min-height: 34px !important;
+    border-radius: 8px !important;
+    background: var(--background-color, #ffffff) !important;
+    color: var(--text-color, #1e293b) !important;
+    border: 1px solid rgba(128, 128, 128, 0.24) !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08), 0 1px 3px rgba(0, 0, 0, 0.04) !important;
+    cursor: pointer !important;
+    font-size: 0.82rem !important;
+    font-weight: 600 !important;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+div[data-testid="stSidebarCollapsedControl"] button:hover {
+    background: var(--secondary-background-color, #f1f5f9) !important;
+    border-color: #ff4b4b !important;
+    color: #ff4b4b !important;
+    box-shadow: 0 4px 14px rgba(255, 75, 75, 0.18) !important;
+    transform: translateY(-1px) !important;
+}
+
+div[data-testid="stSidebarCollapsedControl"] button:active {
+    transform: translateY(0) !important;
+}
+
+div[data-testid="stSidebarCollapsedControl"] button svg {
+    width: 1rem !important;
+    height: 1rem !important;
+    fill: currentColor !important;
+}
+
+/* 增加显式的文案引导与图标搭配 */
+div[data-testid="stSidebarCollapsedControl"] button::after {
+    content: "展开工作台导航";
+    font-size: 0.8rem;
+    font-weight: 500;
+    margin-left: 2px;
+    white-space: nowrap;
+}
+
+/* 侧边栏展开时右上角的折叠按钮美化与防误触提示 */
+button[data-testid="stSidebarCollapseButton"] {
+    transition: all 0.18s ease !important;
+    border-radius: 6px !important;
+}
+
+button[data-testid="stSidebarCollapseButton"]:hover {
+    background: rgba(128, 128, 128, 0.12) !important;
+    color: #ff4b4b !important;
 }
 
 /* -----------------------------------------------------------------------------
@@ -1031,6 +1118,19 @@ div[class*="st-key-workspace_layout_mode_selector"] div[data-baseweb="select"] >
         border-color: rgba(255, 255, 255, 0.08);
         background: rgba(255, 255, 255, 0.02);
     }
+    /* 暗黑模式下展开悬浮控件高质感适配 */
+    div[data-testid="stSidebarCollapsedControl"] button {
+        background: #18191e !important;
+        border-color: rgba(255, 255, 255, 0.18) !important;
+        color: #f1f5f9 !important;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5) !important;
+    }
+    div[data-testid="stSidebarCollapsedControl"] button:hover {
+        background: #23252d !important;
+        border-color: #ff4b4b !important;
+        color: #ff6b6b !important;
+        box-shadow: 0 4px 16px rgba(255, 75, 75, 0.25) !important;
+    }
 }
 
 [data-theme="dark"] section[data-testid="stSidebar"],
@@ -1072,3 +1172,21 @@ div[class*="st-key-workspace_layout_mode_selector"] div[data-baseweb="select"] >
 }
 
 
+
+[data-theme="dark"] div[data-testid="stSidebarCollapsedControl"] button,
+.stApp[data-theme="dark"] div[data-testid="stSidebarCollapsedControl"] button,
+[data-base-theme-type="dark"] div[data-testid="stSidebarCollapsedControl"] button {
+    background: #18191e !important;
+    border-color: rgba(255, 255, 255, 0.18) !important;
+    color: #f1f5f9 !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5) !important;
+}
+
+[data-theme="dark"] div[data-testid="stSidebarCollapsedControl"] button:hover,
+.stApp[data-theme="dark"] div[data-testid="stSidebarCollapsedControl"] button:hover,
+[data-base-theme-type="dark"] div[data-testid="stSidebarCollapsedControl"] button:hover {
+    background: #23252d !important;
+    border-color: #ff4b4b !important;
+    color: #ff6b6b !important;
+    box-shadow: 0 4px 16px rgba(255, 75, 75, 0.25) !important;
+}
